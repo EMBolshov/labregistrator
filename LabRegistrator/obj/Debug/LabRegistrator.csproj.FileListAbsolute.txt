@@ -1,0 +1,14 @@
+D:\work\LabRegistrator\LabRegistrator\bin\Debug\LabRegistrator.exe.config
+D:\work\LabRegistrator\LabRegistrator\bin\Debug\LabRegistrator.exe
+D:\work\LabRegistrator\LabRegistrator\bin\Debug\LabRegistrator.pdb
+D:\work\LabRegistrator\LabRegistrator\obj\Debug\LabRegistrator.csprojResolveAssemblyReference.cache
+D:\work\LabRegistrator\LabRegistrator\obj\Debug\MainWindow.g.cs
+D:\work\LabRegistrator\LabRegistrator\obj\Debug\App.g.cs
+D:\work\LabRegistrator\LabRegistrator\obj\Debug\LabRegistrator_MarkupCompile.cache
+D:\work\LabRegistrator\LabRegistrator\obj\Debug\LabRegistrator_MarkupCompile.lref
+D:\work\LabRegistrator\LabRegistrator\obj\Debug\MainWindow.baml
+D:\work\LabRegistrator\LabRegistrator\obj\Debug\LabRegistrator.g.resources
+D:\work\LabRegistrator\LabRegistrator\obj\Debug\LabRegistrator.Properties.Resources.resources
+D:\work\LabRegistrator\LabRegistrator\obj\Debug\LabRegistrator.csproj.GenerateResource.Cache
+D:\work\LabRegistrator\LabRegistrator\obj\Debug\LabRegistrator.exe
+D:\work\LabRegistrator\LabRegistrator\obj\Debug\LabRegistrator.pdb
