@@ -55,7 +55,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Contract.cs" />
+    <Compile Include="NomenclatureModel.cs" />
+    <Compile Include="QuestinaryModel.cs" />
+    <Compile Include="reqNomenclature.cs" />
+    <Compile Include="reqQuest.cs" />
     <Compile Include="Request.cs" />
+    <Compile Include="Response.cs" />
     <Compile Include="Token.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
