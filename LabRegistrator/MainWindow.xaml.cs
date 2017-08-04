@@ -163,7 +163,7 @@ namespace LabRegistrator
                     ComparePatientPrep += cpp + "\n";
                 }
                 MessageBox.Show(ComparePatientPrep);
-
+                // KEK
                 
             }
         }
