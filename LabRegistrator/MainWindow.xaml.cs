@@ -145,11 +145,27 @@ namespace LabRegistrator
             {
                 var add = new OneTimeCommand(() => { AddSelected(); }, true);
                 var rem = new EnableInnerCommand(() => { DeleteSelected(); }, true, add);
+                var inf = new BaseCommand(() => { showAdditional(); }, true);
 
-                var n = new NomWrapper(x, add, rem);
+                var n = new NomWrapper(x, add, rem, inf);
                 return n;
             }));
 
+        }
+
+        private void showAdditional()
+        {
+            string ComparePatientPrep = "Указания для исследования: \n";
+            if (SelectedItem != null)
+            {
+                 foreach (string cpp in SelectedItem.patient_preparation)
+                {
+                    ComparePatientPrep += cpp + "\n";
+                }
+                MessageBox.Show(ComparePatientPrep);
+
+                
+            }
         }
 
         private void AddSelected()
@@ -183,8 +199,10 @@ namespace LabRegistrator
     {
         public ICommand Select { get; set; }
         public ICommand Delete { get; set; }
+        
+        public ICommand ShowInfo { get; set; }
 
-        public NomWrapper(NomenclatureList source, BaseCommand selectAction, BaseCommand deleteAction)
+        public NomWrapper(NomenclatureList source, BaseCommand selectAction, BaseCommand deleteAction, BaseCommand showInfo)
         {
             id = source.id;
             caption = source.caption;
@@ -193,6 +211,7 @@ namespace LabRegistrator
             patient_preparation = source.patient_preparation;
             Select = selectAction;
             Delete = deleteAction;
+            ShowInfo = showInfo;
         }
     }
     public class BaseCommand : ICommand
@@ -209,12 +228,18 @@ namespace LabRegistrator
         public void Invert()
         {
             _enabled = false;
-            CanExecuteChanged.Invoke(this, EventArgs.Empty);
+            if (CanExecuteChanged != null)
+            {
+                CanExecuteChanged.Invoke(this, EventArgs.Empty);
+            }
         }
         public void Enable()
         {
             _enabled = true;
-            CanExecuteChanged.Invoke(this, EventArgs.Empty);
+            if (CanExecuteChanged != null)
+            {
+                CanExecuteChanged.Invoke(this, EventArgs.Empty);
+            }
         }
 
         public bool CanExecute(object parameter)

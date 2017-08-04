@@ -15,3 +15,17 @@ D:\work\LabRegistrator\LabRegistrator\obj\Debug\LabRegistrator.pdb
 C:\Temp\LabRegistrator2\LabRegistrator\bin\Debug\LabRegistrator.exe.config
 C:\Temp\LabRegistrator2\LabRegistrator\obj\Debug\LabRegistrator.exe
 C:\Temp\LabRegistrator2\LabRegistrator\obj\Debug\LabRegistrator.pdb
+C:\Users\yakovlev.s\Documents\labregistrator\LabRegistrator\bin\Debug\LabRegistrator.exe.config
+C:\Users\yakovlev.s\Documents\labregistrator\LabRegistrator\obj\Debug\LabRegistrator.exe
+C:\Users\yakovlev.s\Documents\labregistrator\LabRegistrator\obj\Debug\LabRegistrator.pdb
+C:\Users\yakovlev.s\Documents\labregistrator\LabRegistrator\bin\Debug\LabRegistrator.exe
+C:\Users\yakovlev.s\Documents\labregistrator\LabRegistrator\bin\Debug\LabRegistrator.pdb
+C:\Users\yakovlev.s\Documents\labregistrator\LabRegistrator\obj\Debug\LabRegistrator.csprojResolveAssemblyReference.cache
+C:\Users\yakovlev.s\Documents\labregistrator\LabRegistrator\obj\Debug\MainWindow.g.cs
+C:\Users\yakovlev.s\Documents\labregistrator\LabRegistrator\obj\Debug\App.g.cs
+C:\Users\yakovlev.s\Documents\labregistrator\LabRegistrator\obj\Debug\LabRegistrator_MarkupCompile.cache
+C:\Users\yakovlev.s\Documents\labregistrator\LabRegistrator\obj\Debug\LabRegistrator_MarkupCompile.lref
+C:\Users\yakovlev.s\Documents\labregistrator\LabRegistrator\obj\Debug\MainWindow.baml
+C:\Users\yakovlev.s\Documents\labregistrator\LabRegistrator\obj\Debug\LabRegistrator.g.resources
+C:\Users\yakovlev.s\Documents\labregistrator\LabRegistrator\obj\Debug\LabRegistrator.Properties.Resources.resources
+C:\Users\yakovlev.s\Documents\labregistrator\LabRegistrator\obj\Debug\LabRegistrator.csproj.GenerateResource.Cache
