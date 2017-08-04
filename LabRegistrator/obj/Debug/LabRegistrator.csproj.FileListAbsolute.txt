@@ -12,3 +12,6 @@ D:\work\LabRegistrator\LabRegistrator\obj\Debug\LabRegistrator.Properties.Resour
 D:\work\LabRegistrator\LabRegistrator\obj\Debug\LabRegistrator.csproj.GenerateResource.Cache
 D:\work\LabRegistrator\LabRegistrator\obj\Debug\LabRegistrator.exe
 D:\work\LabRegistrator\LabRegistrator\obj\Debug\LabRegistrator.pdb
+C:\Temp\LabRegistrator2\LabRegistrator\bin\Debug\LabRegistrator.exe.config
+C:\Temp\LabRegistrator2\LabRegistrator\obj\Debug\LabRegistrator.exe
+C:\Temp\LabRegistrator2\LabRegistrator\obj\Debug\LabRegistrator.pdb

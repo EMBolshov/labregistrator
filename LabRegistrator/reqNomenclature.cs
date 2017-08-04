@@ -6,13 +6,7 @@ using System.Threading.Tasks;
 
 namespace LabRegistrator
 {
-    class Token
+    class reqNomenclature
     {
-        public string Value
-        {
-            get;
-            set;
-        }
-
     }
 }

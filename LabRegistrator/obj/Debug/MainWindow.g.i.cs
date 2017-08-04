@@ -41,7 +41,15 @@ namespace LabRegistrator {
     public partial class MainWindow : System.Windows.Window, System.Windows.Markup.IComponentConnector {
         
         
-        #line 25 "..\..\MainWindow.xaml"
+        #line 38 "..\..\MainWindow.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Label ContractLb;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 39 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox TokenTb;
         
@@ -49,23 +57,23 @@ namespace LabRegistrator {
         #line hidden
         
         
-        #line 26 "..\..\MainWindow.xaml"
+        #line 40 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.Button AuthB;
+        internal System.Windows.Controls.Label TokenLb;
         
         #line default
         #line hidden
         
         
-        #line 27 "..\..\MainWindow.xaml"
+        #line 41 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.Button NomB;
+        internal System.Windows.Controls.TextBox ContractTb;
         
         #line default
         #line hidden
         
         
-        #line 28 "..\..\MainWindow.xaml"
+        #line 47 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button QuesB;
         
@@ -73,7 +81,7 @@ namespace LabRegistrator {
         #line hidden
         
         
-        #line 29 "..\..\MainWindow.xaml"
+        #line 48 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button PreB;
         
@@ -81,25 +89,9 @@ namespace LabRegistrator {
         #line hidden
         
         
-        #line 30 "..\..\MainWindow.xaml"
+        #line 49 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Button SendB;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 31 "..\..\MainWindow.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TextBox ListV;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 32 "..\..\MainWindow.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.Label status;
         
         #line default
         #line hidden
@@ -135,40 +127,25 @@ namespace LabRegistrator {
             switch (connectionId)
             {
             case 1:
-            this.TokenTb = ((System.Windows.Controls.TextBox)(target));
+            this.ContractLb = ((System.Windows.Controls.Label)(target));
             return;
             case 2:
-            this.AuthB = ((System.Windows.Controls.Button)(target));
-            
-            #line 26 "..\..\MainWindow.xaml"
-            this.AuthB.Click += new System.Windows.RoutedEventHandler(this.AuthB_Click);
-            
-            #line default
-            #line hidden
+            this.TokenTb = ((System.Windows.Controls.TextBox)(target));
             return;
             case 3:
-            this.NomB = ((System.Windows.Controls.Button)(target));
-            
-            #line 27 "..\..\MainWindow.xaml"
-            this.NomB.Click += new System.Windows.RoutedEventHandler(this.NomB_Click);
-            
-            #line default
-            #line hidden
+            this.TokenLb = ((System.Windows.Controls.Label)(target));
             return;
             case 4:
-            this.QuesB = ((System.Windows.Controls.Button)(target));
+            this.ContractTb = ((System.Windows.Controls.TextBox)(target));
             return;
             case 5:
-            this.PreB = ((System.Windows.Controls.Button)(target));
+            this.QuesB = ((System.Windows.Controls.Button)(target));
             return;
             case 6:
-            this.SendB = ((System.Windows.Controls.Button)(target));
+            this.PreB = ((System.Windows.Controls.Button)(target));
             return;
             case 7:
-            this.ListV = ((System.Windows.Controls.TextBox)(target));
-            return;
-            case 8:
-            this.status = ((System.Windows.Controls.Label)(target));
+            this.SendB = ((System.Windows.Controls.Button)(target));
             return;
             }
             this._contentLoaded = true;

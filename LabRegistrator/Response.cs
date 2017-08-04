@@ -6,13 +6,7 @@ using System.Threading.Tasks;
 
 namespace LabRegistrator
 {
-    class Token
+    class Response
     {
-        public string Value
-        {
-            get;
-            set;
-        }
-
     }
 }
