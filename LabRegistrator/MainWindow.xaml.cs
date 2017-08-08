@@ -34,7 +34,6 @@ namespace LabRegistrator
             DataContext = new WindowViewModel();
         }
     }
-
     public class WindowViewModel : INotifyPropertyChanged
     {
         Token postmantoken = new Token();
@@ -113,7 +112,7 @@ namespace LabRegistrator
         public ObservableCollection<NomWrapper> Items { get { return _items; } set { _items = value; OnPropertyChanged(nameof(Items)); } }
 
         private string _contract = "C000035569";
-        private string _token = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjU2NjU0MzNCMjg2ODM1QjFERDg2OTRDRTUzRkYzQUE1RTYyNDFBNUQiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJWbVZET3lob05iSGRocFRPVV84NnBlWWtHbDAifQ.eyJuYmYiOjE1MDE4NDkxNTgsImV4cCI6MTUwMTg4NTE1OCwiaXNzIjoiaHR0cHM6Ly9hdXRoLXN0YWdlLm1lZGxpbngub25saW5lIiwiYXVkIjpbImh0dHBzOi8vYXV0aC1zdGFnZS5tZWRsaW54Lm9ubGluZS9yZXNvdXJjZXMiLCJmaGlyQVBJIl0sImNsaWVudF9pZCI6InRlc3RwZXB5YWthIiwic3ViIjoiZDE3OTBmODEtODQyMi00OWI1LWJkZWYtZjFhMjgwYTZlMWM1IiwiYXV0aF90aW1lIjoxNTAxODI1MjE1LCJpZHAiOiJsb2NhbCIsImZoaXItZHN0dTIiOiJmaGlyLyovJCoiLCJzY29wZSI6WyJtaXMiXSwiYW1yIjpbInB3ZCJdfQ.Ut5WM9F6KSKychmfTeauUxIVlrbDbOP1Nbn_xQUSAZAnqCa8GUivSosiJJj22hF2iZ2sQ03k6zzekssPMtpjv2iPLXvvGf6zdA2j2uPjofoegmTPNVnAmkDHCMDxPTV0eiVKR2Kn4vJyqxXhdnQjIx9dJIUsWGKsZXamltNcoP6Vd0binr78vInS30FYNKlnE4vFTq6FjimRPVFP9vY5Qpg_LtN9wmM6mStquUR-AgnV0bHqgbdHrHk09_NnfeVwaaglSYrH6905LiYn5aPLe1U-NGFUeqTY1Kk4BQ3cL1iSy2M6tk_CxDkLI2bXerpkIXZzcEWsqDhXTyNoJSgtcA";
+        private string _token = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjU2NjU0MzNCMjg2ODM1QjFERDg2OTRDRTUzRkYzQUE1RTYyNDFBNUQiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJWbVZET3lob05iSGRocFRPVV84NnBlWWtHbDAifQ.eyJuYmYiOjE1MDIwOTI3NjMsImV4cCI6MTUwMjEyODc2MywiaXNzIjoiaHR0cHM6Ly9hdXRoLXN0YWdlLm1lZGxpbngub25saW5lIiwiYXVkIjpbImh0dHBzOi8vYXV0aC1zdGFnZS5tZWRsaW54Lm9ubGluZS9yZXNvdXJjZXMiLCJmaGlyQVBJIl0sImNsaWVudF9pZCI6InRlc3RwZXB5YWthIiwic3ViIjoiZDE3OTBmODEtODQyMi00OWI1LWJkZWYtZjFhMjgwYTZlMWM1IiwiYXV0aF90aW1lIjoxNTAyMDkyNzYyLCJpZHAiOiJsb2NhbCIsImZoaXItZHN0dTIiOiJmaGlyLyovJCoiLCJzY29wZSI6WyJtaXMiXSwiYW1yIjpbInB3ZCJdfQ.TzkLJ6Lj22RfNZ1V_PWx0kyoOCvST7R8GDcinkspfiWD900vUmlgdqAul03JuA36vOqD809fu24aqgr-f1wtqwgp3H12KTaP5tztNYpNlXmJZQtcFqzKX5c1GexwD2ydw8oakNYL5f-Vl7ba4Kcq26XE8YQt0ox4PkpUHGtAvtCzlXg_srgltruX3MJEqdQF8j8eqHuiDvsmGcDjvtYl2DjPThbvl6aahclxkVFk9DcWYy4NRAszNMFwcFPD9YZrKEM77JYbrD7bina6554FawMjZQMIlpBRMLFLeqWtWU4xkEkuS91CAzkOknopymgh9mmE35l8wgcn1mU80Y9fPw";
 
         public ObservableCollection<NomWrapper> ChosenItems { get; set; }
         public WindowViewModel()
@@ -130,7 +129,7 @@ namespace LabRegistrator
         public void Auth()
         {
             // postmantoken.Value = TokenTb.Text;
-            postmantoken.Value = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjU2NjU0MzNCMjg2ODM1QjFERDg2OTRDRTUzRkYzQUE1RTYyNDFBNUQiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJWbVZET3lob05iSGRocFRPVV84NnBlWWtHbDAifQ.eyJuYmYiOjE1MDE4MjUyMTgsImV4cCI6MTUwMTg2MTIxOCwiaXNzIjoiaHR0cHM6Ly9hdXRoLXN0YWdlLm1lZGxpbngub25saW5lIiwiYXVkIjpbImh0dHBzOi8vYXV0aC1zdGFnZS5tZWRsaW54Lm9ubGluZS9yZXNvdXJjZXMiLCJmaGlyQVBJIl0sImNsaWVudF9pZCI6InRlc3RwZXB5YWthIiwic3ViIjoiZDE3OTBmODEtODQyMi00OWI1LWJkZWYtZjFhMjgwYTZlMWM1IiwiYXV0aF90aW1lIjoxNTAxODI1MjE1LCJpZHAiOiJsb2NhbCIsImZoaXItZHN0dTIiOiJmaGlyLyovJCoiLCJzY29wZSI6WyJtaXMiXSwiYW1yIjpbInB3ZCJdfQ.MUlphqw8co0tgonpf79KqV6tfPziGcZa3 - toL380taiJ - xzs_yWAAAy2tn_V9hEg6Pn08tA2a3OA04GMiJJXPvt2e10yzhicp5Hn12X1hTxI0bKMnvjxIXJovdgIhL9rVGTLUySkbmqyXQHTUu0hRWDw3e9Qbv1WUDko_WdS8_PrwNNJLmjhwz - mgk_1QHpjSb6hHRKMtki1ncsvPPz4b1B49wtc3vfMQRTXVdRU1oHHtTpDGcrKeWLvPiHVOkMCvCeif9jyJTnpm3C00gzLrBt - W3dfBdXuEhqA7UaRvzFRSBasqoRyYIY5y0jrp2U - 1uR1qHWrVTInpaHLSJ0Ptw";
+            postmantoken.Value = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjU2NjU0MzNCMjg2ODM1QjFERDg2OTRDRTUzRkYzQUE1RTYyNDFBNUQiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJWbVZET3lob05iSGRocFRPVV84NnBlWWtHbDAifQ.eyJuYmYiOjE1MDIwOTI3NjMsImV4cCI6MTUwMjEyODc2MywiaXNzIjoiaHR0cHM6Ly9hdXRoLXN0YWdlLm1lZGxpbngub25saW5lIiwiYXVkIjpbImh0dHBzOi8vYXV0aC1zdGFnZS5tZWRsaW54Lm9ubGluZS9yZXNvdXJjZXMiLCJmaGlyQVBJIl0sImNsaWVudF9pZCI6InRlc3RwZXB5YWthIiwic3ViIjoiZDE3OTBmODEtODQyMi00OWI1LWJkZWYtZjFhMjgwYTZlMWM1IiwiYXV0aF90aW1lIjoxNTAyMDkyNzYyLCJpZHAiOiJsb2NhbCIsImZoaXItZHN0dTIiOiJmaGlyLyovJCoiLCJzY29wZSI6WyJtaXMiXSwiYW1yIjpbInB3ZCJdfQ.TzkLJ6Lj22RfNZ1V_PWx0kyoOCvST7R8GDcinkspfiWD900vUmlgdqAul03JuA36vOqD809fu24aqgr-f1wtqwgp3H12KTaP5tztNYpNlXmJZQtcFqzKX5c1GexwD2ydw8oakNYL5f-Vl7ba4Kcq26XE8YQt0ox4PkpUHGtAvtCzlXg_srgltruX3MJEqdQF8j8eqHuiDvsmGcDjvtYl2DjPThbvl6aahclxkVFk9DcWYy4NRAszNMFwcFPD9YZrKEM77JYbrD7bina6554FawMjZQMIlpBRMLFLeqWtWU4xkEkuS91CAzkOknopymgh9mmE35l8wgcn1mU80Y9fPw";
             // ListV.Text = postmantoken.Value.ToString();
             contract.Value = "C000035569";
             Status = "Установлены значения для токена и контракта.";
@@ -155,17 +154,14 @@ namespace LabRegistrator
 
         private void showAdditional()
         {
-            string ComparePatientPrep = "Указания для исследования: \n";
-            if (SelectedItem != null)
+            var comparePatientPrep = "Указания для исследования: \n";
+            if (SelectedItem == null) return;
+            foreach (var cpp in SelectedItem.patient_preparation)
             {
-                 foreach (string cpp in SelectedItem.patient_preparation)
-                {
-                    ComparePatientPrep += cpp + "\n";
-                }
-                MessageBox.Show(ComparePatientPrep);
-                // KEK
-                
+                comparePatientPrep += cpp + "\n";
             }
+            MessageBox.Show(comparePatientPrep);
+            // KEK
         }
 
         private void AddSelected()
@@ -188,8 +184,7 @@ namespace LabRegistrator
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged(string propertyName)
         {
-            if (PropertyChanged != null)
-                PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         #endregion
@@ -204,6 +199,9 @@ namespace LabRegistrator
 
         public NomWrapper(NomenclatureList source, BaseCommand selectAction, BaseCommand deleteAction, BaseCommand showInfo)
         {
+            if (selectAction == null) throw new ArgumentNullException(nameof(selectAction));
+            if (deleteAction == null) throw new ArgumentNullException(nameof(deleteAction));
+            if (showInfo == null) throw new ArgumentNullException(nameof(showInfo));
             id = source.id;
             caption = source.caption;
             group = source.group;
@@ -228,18 +226,12 @@ namespace LabRegistrator
         public void Invert()
         {
             _enabled = false;
-            if (CanExecuteChanged != null)
-            {
-                CanExecuteChanged.Invoke(this, EventArgs.Empty);
-            }
+            CanExecuteChanged?.Invoke(this, EventArgs.Empty);
         }
         public void Enable()
         {
             _enabled = true;
-            if (CanExecuteChanged != null)
-            {
-                CanExecuteChanged.Invoke(this, EventArgs.Empty);
-            }
+            CanExecuteChanged?.Invoke(this, EventArgs.Empty);
         }
 
         public bool CanExecute(object parameter)
