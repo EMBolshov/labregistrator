@@ -30,17 +30,24 @@ namespace LabRegistrator
         
         public class NmWindowViewModel
         {
-            private string description { get; set; }
-            private string 
+            public string Description { get; set; }
+            public string ContainerType { get; set; }
+
+            public string[] PatientPrep { get; set; }
+
+
             public NmWindowViewModel(NomWrapper nmWrap)
             {
-
+                DescriptionReturn(nmWrap);
+                PatientPrep = nmWrap.patient_preparation;
             }
 
-            private string DescriptionReturn (NomWrapper nmWrap)
+            private void DescriptionReturn (NomWrapper nmWrap)
             {
-                return nmWrap.description;
+                Description = nmWrap.description;
             }
+
+       
 
         }
 

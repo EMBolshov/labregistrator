@@ -5,14 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LabRegistrator"
         mc:Ignorable="d"
-        Title="NomenclatureInfo" Height="300" Width="466.406">
+        Title="NomenclatureInfo" Height="600" Width="1200">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50*"></RowDefinition>
             <RowDefinition Height="50*"></RowDefinition>
             <RowDefinition Height="50*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Label Content="{Binding description}" Grid.Row="0"></Label>
-
+        <StackPanel Orientation="Vertical" Width="auto" Height="auto">
+        <TextBlock TextWrapping="WrapWithOverflow" Text="{Binding Description}" Grid.Row="0"></TextBlock>
+        </StackPanel>
+        <ListBox ItemsSource="{Binding PatientPrep}" Grid.Row="1">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="{Binding}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Window>

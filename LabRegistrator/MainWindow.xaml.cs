@@ -112,7 +112,7 @@ namespace LabRegistrator
         public ObservableCollection<NomWrapper> Items { get { return _items; } set { _items = value; OnPropertyChanged(nameof(Items)); } }
 
         private string _contract = "C000035569";
-        private string _token = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjU2NjU0MzNCMjg2ODM1QjFERDg2OTRDRTUzRkYzQUE1RTYyNDFBNUQiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJWbVZET3lob05iSGRocFRPVV84NnBlWWtHbDAifQ.eyJuYmYiOjE1MDIwOTI3NjMsImV4cCI6MTUwMjEyODc2MywiaXNzIjoiaHR0cHM6Ly9hdXRoLXN0YWdlLm1lZGxpbngub25saW5lIiwiYXVkIjpbImh0dHBzOi8vYXV0aC1zdGFnZS5tZWRsaW54Lm9ubGluZS9yZXNvdXJjZXMiLCJmaGlyQVBJIl0sImNsaWVudF9pZCI6InRlc3RwZXB5YWthIiwic3ViIjoiZDE3OTBmODEtODQyMi00OWI1LWJkZWYtZjFhMjgwYTZlMWM1IiwiYXV0aF90aW1lIjoxNTAyMDkyNzYyLCJpZHAiOiJsb2NhbCIsImZoaXItZHN0dTIiOiJmaGlyLyovJCoiLCJzY29wZSI6WyJtaXMiXSwiYW1yIjpbInB3ZCJdfQ.TzkLJ6Lj22RfNZ1V_PWx0kyoOCvST7R8GDcinkspfiWD900vUmlgdqAul03JuA36vOqD809fu24aqgr-f1wtqwgp3H12KTaP5tztNYpNlXmJZQtcFqzKX5c1GexwD2ydw8oakNYL5f-Vl7ba4Kcq26XE8YQt0ox4PkpUHGtAvtCzlXg_srgltruX3MJEqdQF8j8eqHuiDvsmGcDjvtYl2DjPThbvl6aahclxkVFk9DcWYy4NRAszNMFwcFPD9YZrKEM77JYbrD7bina6554FawMjZQMIlpBRMLFLeqWtWU4xkEkuS91CAzkOknopymgh9mmE35l8wgcn1mU80Y9fPw";
+        private string _token = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjU2NjU0MzNCMjg2ODM1QjFERDg2OTRDRTUzRkYzQUE1RTYyNDFBNUQiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJWbVZET3lob05iSGRocFRPVV84NnBlWWtHbDAifQ.eyJuYmYiOjE1MDIxNzc4MzMsImV4cCI6MTUwMjIxMzgzMywiaXNzIjoiaHR0cHM6Ly9hdXRoLXN0YWdlLm1lZGxpbngub25saW5lIiwiYXVkIjpbImh0dHBzOi8vYXV0aC1zdGFnZS5tZWRsaW54Lm9ubGluZS9yZXNvdXJjZXMiLCJmaGlyQVBJIl0sImNsaWVudF9pZCI6InRlc3RwZXB5YWthIiwic3ViIjoiZDE3OTBmODEtODQyMi00OWI1LWJkZWYtZjFhMjgwYTZlMWM1IiwiYXV0aF90aW1lIjoxNTAyMDkyNzYyLCJpZHAiOiJsb2NhbCIsImZoaXItZHN0dTIiOiJmaGlyLyovJCoiLCJzY29wZSI6WyJtaXMiXSwiYW1yIjpbInB3ZCJdfQ.GV-2m_5PhpLQn2M3G3RjCf3Cc5CiVWtjRkty9KNwc7M9IRMBKjSORqTNCGMT4Iyp__bLd7aQqtEmUG_1v700gUj_ek2wdppnj_MAFy2azCBCCyZ-_Qabb4E2_9JGXmdbsk26USW9oGnktytxLD5bjRFALIrHfrbrElsR0MstK0CymWn-oaSAV0KZFjsxlO3ZHsAWi2mmtiyTjQju0bHYe9ebLUBt0H51IIypB2WdjI8hRwUEJKnMBqbbr1ylIYAbQDI5gWwg26nLXOwfZEgqM8SqWBXruXh-A3XTfmEJifdIt1VjdXrSFCiy3mmodxVyZ9vRO5VOE9FWP1yfP55GNQ";
 
         public ObservableCollection<NomWrapper> ChosenItems { get; set; }
         public WindowViewModel()
@@ -129,7 +129,7 @@ namespace LabRegistrator
         public void Auth()
         {
             // postmantoken.Value = TokenTb.Text;
-            postmantoken.Value = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjU2NjU0MzNCMjg2ODM1QjFERDg2OTRDRTUzRkYzQUE1RTYyNDFBNUQiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJWbVZET3lob05iSGRocFRPVV84NnBlWWtHbDAifQ.eyJuYmYiOjE1MDIwOTI3NjMsImV4cCI6MTUwMjEyODc2MywiaXNzIjoiaHR0cHM6Ly9hdXRoLXN0YWdlLm1lZGxpbngub25saW5lIiwiYXVkIjpbImh0dHBzOi8vYXV0aC1zdGFnZS5tZWRsaW54Lm9ubGluZS9yZXNvdXJjZXMiLCJmaGlyQVBJIl0sImNsaWVudF9pZCI6InRlc3RwZXB5YWthIiwic3ViIjoiZDE3OTBmODEtODQyMi00OWI1LWJkZWYtZjFhMjgwYTZlMWM1IiwiYXV0aF90aW1lIjoxNTAyMDkyNzYyLCJpZHAiOiJsb2NhbCIsImZoaXItZHN0dTIiOiJmaGlyLyovJCoiLCJzY29wZSI6WyJtaXMiXSwiYW1yIjpbInB3ZCJdfQ.TzkLJ6Lj22RfNZ1V_PWx0kyoOCvST7R8GDcinkspfiWD900vUmlgdqAul03JuA36vOqD809fu24aqgr-f1wtqwgp3H12KTaP5tztNYpNlXmJZQtcFqzKX5c1GexwD2ydw8oakNYL5f-Vl7ba4Kcq26XE8YQt0ox4PkpUHGtAvtCzlXg_srgltruX3MJEqdQF8j8eqHuiDvsmGcDjvtYl2DjPThbvl6aahclxkVFk9DcWYy4NRAszNMFwcFPD9YZrKEM77JYbrD7bina6554FawMjZQMIlpBRMLFLeqWtWU4xkEkuS91CAzkOknopymgh9mmE35l8wgcn1mU80Y9fPw";
+            postmantoken.Value = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjU2NjU0MzNCMjg2ODM1QjFERDg2OTRDRTUzRkYzQUE1RTYyNDFBNUQiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJWbVZET3lob05iSGRocFRPVV84NnBlWWtHbDAifQ.eyJuYmYiOjE1MDIxNzc4MzMsImV4cCI6MTUwMjIxMzgzMywiaXNzIjoiaHR0cHM6Ly9hdXRoLXN0YWdlLm1lZGxpbngub25saW5lIiwiYXVkIjpbImh0dHBzOi8vYXV0aC1zdGFnZS5tZWRsaW54Lm9ubGluZS9yZXNvdXJjZXMiLCJmaGlyQVBJIl0sImNsaWVudF9pZCI6InRlc3RwZXB5YWthIiwic3ViIjoiZDE3OTBmODEtODQyMi00OWI1LWJkZWYtZjFhMjgwYTZlMWM1IiwiYXV0aF90aW1lIjoxNTAyMDkyNzYyLCJpZHAiOiJsb2NhbCIsImZoaXItZHN0dTIiOiJmaGlyLyovJCoiLCJzY29wZSI6WyJtaXMiXSwiYW1yIjpbInB3ZCJdfQ.GV-2m_5PhpLQn2M3G3RjCf3Cc5CiVWtjRkty9KNwc7M9IRMBKjSORqTNCGMT4Iyp__bLd7aQqtEmUG_1v700gUj_ek2wdppnj_MAFy2azCBCCyZ-_Qabb4E2_9JGXmdbsk26USW9oGnktytxLD5bjRFALIrHfrbrElsR0MstK0CymWn-oaSAV0KZFjsxlO3ZHsAWi2mmtiyTjQju0bHYe9ebLUBt0H51IIypB2WdjI8hRwUEJKnMBqbbr1ylIYAbQDI5gWwg26nLXOwfZEgqM8SqWBXruXh-A3XTfmEJifdIt1VjdXrSFCiy3mmodxVyZ9vRO5VOE9FWP1yfP55GNQ";
             // ListV.Text = postmantoken.Value.ToString();
             contract.Value = "C000035569";
             Status = "Установлены значения для токена и контракта.";
@@ -154,14 +154,16 @@ namespace LabRegistrator
 
         private void showAdditional()
         {
-            var comparePatientPrep = "Указания для исследования: \n";
-            if (SelectedItem == null) return;
-            foreach (var cpp in SelectedItem.patient_preparation)
-            {
-                comparePatientPrep += cpp + "\n";
-            }
-            MessageBox.Show(comparePatientPrep);
-            // KEK
+            //var comparePatientPrep = "Указания для исследования: \n";
+            //if (SelectedItem == null) return;
+            //foreach (var cpp in SelectedItem.patient_preparation)
+            //{
+            //    comparePatientPrep += cpp + "\n";
+            //}
+            //MessageBox.Show(comparePatientPrep);
+            var showAdd = new NomenclatureInfo(SelectedItem);
+            showAdd.ShowDialog();
+
         }
 
         private void AddSelected()
