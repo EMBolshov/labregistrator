@@ -27,29 +27,6 @@ namespace LabRegistrator
             DataContext = new NmWindowViewModel(datacontext);
            
         }
-        
-        public class NmWindowViewModel
-        {
-            public string Description { get; set; }
-            public string ContainerType { get; set; }
-
-            public string[] PatientPrep { get; set; }
-
-
-            public NmWindowViewModel(NomWrapper nmWrap)
-            {
-                DescriptionReturn(nmWrap);
-                PatientPrep = nmWrap.patient_preparation;
-            }
-
-            private void DescriptionReturn (NomWrapper nmWrap)
-            {
-                Description = nmWrap.description;
-            }
-
-       
-
-        }
 
     }
 }

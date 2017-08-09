@@ -56,14 +56,14 @@
                 <DataGridTemplateColumn Header="Добавить">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Command="{Binding Select}">+</Button>
+                            <Button Command="{Binding Select}" ToolTip="Добавить в корзину">+</Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTemplateColumn Header="ДопИнфо">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Command="{Binding ShowInfo}">?</Button>
+                            <Button Command="{Binding ShowInfo}" ToolTip="Дополнительная информация">?</Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -96,7 +96,7 @@
                 <DataGridTemplateColumn Header="Удалить">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Command="{Binding Delete}">-</Button>
+                            <Button Command="{Binding Delete}" ToolTip="Убрать из корзины">-</Button>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

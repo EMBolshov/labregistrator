@@ -5,17 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LabRegistrator"
         mc:Ignorable="d"
-        Title="NomenclatureInfo" Height="600" Width="1200">
+        Title="{Binding NomenclatureID}" Height="600" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50*"></RowDefinition>
             <RowDefinition Height="50*"></RowDefinition>
             <RowDefinition Height="50*"></RowDefinition>
+            <RowDefinition Height="10*"></RowDefinition>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Vertical" Width="auto" Height="auto">
-        <TextBlock TextWrapping="WrapWithOverflow" Text="{Binding Description}" Grid.Row="0"></TextBlock>
-        </StackPanel>
-        <ListBox ItemsSource="{Binding PatientPrep}" Grid.Row="1">
+        <Label Content="Описание исследования: " Grid.Row="0" FontStretch="ExtraCondensed" FontWeight="Bold"></Label>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="0">
+            <StackPanel Orientation="Vertical" Width="auto" Height="auto" Margin="25">
+                <TextBlock TextWrapping="WrapWithOverflow" Text="{Binding Description}" Grid.Row="0"></TextBlock>
+            </StackPanel>
+        </ScrollViewer>
+        <Label Content="Подготовка к исследованию: " Grid.Row="1" FontStretch="ExtraCondensed" FontWeight="Bold"></Label>
+        <ListBox ItemsSource="{Binding PatientPrep}" Grid.Row="1" Margin="25">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
