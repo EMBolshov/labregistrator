@@ -21,10 +21,10 @@ namespace LabRegistrator
     /// </summary>
     public partial class NomenclatureInfo : Window
     {
-        public NomenclatureInfo(NomWrapper datacontext)
+        public NomenclatureInfo(NmWindowViewModel datacontext)
         {
-            InitializeComponent();
-            DataContext = new NmWindowViewModel(datacontext);
+            InitializeComponent(); 
+            DataContext = datacontext;
            
         }
 
