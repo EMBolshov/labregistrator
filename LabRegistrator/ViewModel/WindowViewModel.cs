@@ -20,25 +20,13 @@ using System.Collections.ObjectModel;
 
 namespace LabRegistrator
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
-    {
-        // Token postmantoken = new Token();
-        // Contract contract = new Contract();
-        // Response httpResp = new Response();
-        public MainWindow()
-        {
-            InitializeComponent();
-            DataContext = new WindowViewModel();
-        }
-    }
-
     public class WindowViewModel : INotifyPropertyChanged
     {
         Token postmantoken = new Token();
         Contract contract = new Contract();
+        private int _tabNumber = 0;
+
+        //public int TabNumber(Gen)
         private string _name;
         private string _status;
         public string Status
@@ -113,7 +101,7 @@ namespace LabRegistrator
         public ObservableCollection<NomWrapper> Items { get { return _items; } set { _items = value; OnPropertyChanged(nameof(Items)); } }
 
         private string _contract = "C000035569";
-        private string _token = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjU2NjU0MzNCMjg2ODM1QjFERDg2OTRDRTUzRkYzQUE1RTYyNDFBNUQiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJWbVZET3lob05iSGRocFRPVV84NnBlWWtHbDAifQ.eyJuYmYiOjE1MDE4MjUyMTgsImV4cCI6MTUwMTg2MTIxOCwiaXNzIjoiaHR0cHM6Ly9hdXRoLXN0YWdlLm1lZGxpbngub25saW5lIiwiYXVkIjpbImh0dHBzOi8vYXV0aC1zdGFnZS5tZWRsaW54Lm9ubGluZS9yZXNvdXJjZXMiLCJmaGlyQVBJIl0sImNsaWVudF9pZCI6InRlc3RwZXB5YWthIiwic3ViIjoiZDE3OTBmODEtODQyMi00OWI1LWJkZWYtZjFhMjgwYTZlMWM1IiwiYXV0aF90aW1lIjoxNTAxODI1MjE1LCJpZHAiOiJsb2NhbCIsImZoaXItZHN0dTIiOiJmaGlyLyovJCoiLCJzY29wZSI6WyJtaXMiXSwiYW1yIjpbInB3ZCJdfQ.MUlphqw8co0tgonpf79KqV6tfPziGcZa3-toL380taiJ-xzs_yWAAAy2tn_V9hEg6Pn08tA2a3OA04GMiJJXPvt2e10yzhicp5Hn12X1hTxI0bKMnvjxIXJovdgIhL9rVGTLUySkbmqyXQHTUu0hRWDw3e9Qbv1WUDko_WdS8_PrwNNJLmjhwz-mgk_1QHpjSb6hHRKMtki1ncsvPPz4b1B49wtc3vfMQRTXVdRU1oHHtTpDGcrKeWLvPiHVOkMCvCeif9jyJTnpm3C00gzLrBt-W3dfBdXuEhqA7UaRvzFRSBasqoRyYIY5y0jrp2U-1uR1qHWrVTInpaHLSJ0Ptw";
+        private string _token = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjU2NjU0MzNCMjg2ODM1QjFERDg2OTRDRTUzRkYzQUE1RTYyNDFBNUQiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJWbVZET3lob05iSGRocFRPVV84NnBlWWtHbDAifQ.eyJuYmYiOjE1MDIzNjYxMjQsImV4cCI6MTUwMjQwMjEyNCwiaXNzIjoiaHR0cHM6Ly9hdXRoLXN0YWdlLm1lZGxpbngub25saW5lIiwiYXVkIjpbImh0dHBzOi8vYXV0aC1zdGFnZS5tZWRsaW54Lm9ubGluZS9yZXNvdXJjZXMiLCJmaGlyQVBJIl0sImNsaWVudF9pZCI6InRlc3RwZXB5YWthIiwic3ViIjoiZDE3OTBmODEtODQyMi00OWI1LWJkZWYtZjFhMjgwYTZlMWM1IiwiYXV0aF90aW1lIjoxNTAyMzY2MTIzLCJpZHAiOiJsb2NhbCIsImZoaXItZHN0dTIiOiJmaGlyLyovJCoiLCJzY29wZSI6WyJtaXMiXSwiYW1yIjpbInB3ZCJdfQ.n3z5ekk7vqv2FT_l66aFHxOcUQNWjaQ0Q6isr9_Q4YuQVxlA20VAvtKRDuJDgo8O7si5XC7W3LjR5r3AzhhGHgubGuQfn96BtZyA9U_mNzmnZLqK_Bv2U0HmnZIddv50lV0JGDoKrObLH0wGLn6fQ9S0_st5YTNUJJseFxtw-Xz-NqQ1mXUE1rOsyvrUmo0mpicz44HsKiM2eCAJ7RFJQq_5GCMDs4tY46waq_Woes4Dxebno2qVk3KNS5jsBZXPa56yniILfQdxkFA5QLUW5qltb1MzfmqYNgRl02opLRDqdrAdTK8pET9fAfidBdh8t_uLTFXReSPKg3z670ijVg";
 
         public ObservableCollection<NomWrapper> ChosenItems { get; set; }
         public WindowViewModel()
@@ -130,7 +118,7 @@ namespace LabRegistrator
         public void Auth()
         {
             // postmantoken.Value = TokenTb.Text;
-            postmantoken.Value = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjU2NjU0MzNCMjg2ODM1QjFERDg2OTRDRTUzRkYzQUE1RTYyNDFBNUQiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJWbVZET3lob05iSGRocFRPVV84NnBlWWtHbDAifQ.eyJuYmYiOjE1MDE4MjUyMTgsImV4cCI6MTUwMTg2MTIxOCwiaXNzIjoiaHR0cHM6Ly9hdXRoLXN0YWdlLm1lZGxpbngub25saW5lIiwiYXVkIjpbImh0dHBzOi8vYXV0aC1zdGFnZS5tZWRsaW54Lm9ubGluZS9yZXNvdXJjZXMiLCJmaGlyQVBJIl0sImNsaWVudF9pZCI6InRlc3RwZXB5YWthIiwic3ViIjoiZDE3OTBmODEtODQyMi00OWI1LWJkZWYtZjFhMjgwYTZlMWM1IiwiYXV0aF90aW1lIjoxNTAxODI1MjE1LCJpZHAiOiJsb2NhbCIsImZoaXItZHN0dTIiOiJmaGlyLyovJCoiLCJzY29wZSI6WyJtaXMiXSwiYW1yIjpbInB3ZCJdfQ.MUlphqw8co0tgonpf79KqV6tfPziGcZa3 - toL380taiJ - xzs_yWAAAy2tn_V9hEg6Pn08tA2a3OA04GMiJJXPvt2e10yzhicp5Hn12X1hTxI0bKMnvjxIXJovdgIhL9rVGTLUySkbmqyXQHTUu0hRWDw3e9Qbv1WUDko_WdS8_PrwNNJLmjhwz - mgk_1QHpjSb6hHRKMtki1ncsvPPz4b1B49wtc3vfMQRTXVdRU1oHHtTpDGcrKeWLvPiHVOkMCvCeif9jyJTnpm3C00gzLrBt - W3dfBdXuEhqA7UaRvzFRSBasqoRyYIY5y0jrp2U - 1uR1qHWrVTInpaHLSJ0Ptw";
+            postmantoken.Value = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjU2NjU0MzNCMjg2ODM1QjFERDg2OTRDRTUzRkYzQUE1RTYyNDFBNUQiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJWbVZET3lob05iSGRocFRPVV84NnBlWWtHbDAifQ.eyJuYmYiOjE1MDIyNjM4MzEsImV4cCI6MTUwMjI5OTgzMSwiaXNzIjoiaHR0cHM6Ly9hdXRoLXN0YWdlLm1lZGxpbngub25saW5lIiwiYXVkIjpbImh0dHBzOi8vYXV0aC1zdGFnZS5tZWRsaW54Lm9ubGluZS9yZXNvdXJjZXMiLCJmaGlyQVBJIl0sImNsaWVudF9pZCI6InRlc3RwZXB5YWthIiwic3ViIjoiZDE3OTBmODEtODQyMi00OWI1LWJkZWYtZjFhMjgwYTZlMWM1IiwiYXV0aF90aW1lIjoxNTAyMjYzODMwLCJpZHAiOiJsb2NhbCIsImZoaXItZHN0dTIiOiJmaGlyLyovJCoiLCJzY29wZSI6WyJtaXMiXSwiYW1yIjpbInB3ZCJdfQ.v7j6RHh-nIC-viARGiq-j6Rdx7PJedImorwyyH9XoYEtQJv7cnKHTQlUPeD0Gjq460WttQ_wZFyo8HeIxSNFu-JeU7-NbUlpDxd35EzXMvGMUYc7mZl58FGAiTywpZi0KMDTa2HG_0P1JZMXRWOiUgLCYPapSlVwbRO2gh8p4wvrBJjGP3yDPdvPFvXCyWbwfO4zwu9Bf5_NzKXOrFcDMKduogeFT_eTL8GTx8zsbPsCbmq_78KvsnV1CicuiZQlPqrrl7EUmXc9iPMUnYxcDtUxlulb_ZpCbmccQaMJX9AmjrwZJSsKbG4sEX_aSf8nwnDLXkmEYUMVCLzCgyRzDw";
             // ListV.Text = postmantoken.Value.ToString();
             contract.Value = "C000035569";
             Status = "Установлены значения для токена и контракта.";
@@ -155,17 +143,19 @@ namespace LabRegistrator
 
         private void showAdditional()
         {
-            string ComparePatientPrep = "Указания для исследования: \n";
-            if (SelectedItem != null)
-            {
-                 foreach (string cpp in SelectedItem.patient_preparation)
-                {
-                    ComparePatientPrep += cpp + "\n";
-                }
-                MessageBox.Show(ComparePatientPrep);
+            //var comparePatientPrep = "Указания для исследования: \n";
+            //if (SelectedItem == null) return;
+            //foreach (var cpp in SelectedItem.patient_preparation)
+            //{
+            //    comparePatientPrep += cpp + "\n";
+            //}
+            //MessageBox.Show(comparePatientPrep);
+            var vm = new NmWindowViewModel(SelectedItem);
+            var showAdd = new NomenclatureInfo(vm);
+            
+            showAdd.ShowDialog();
 
-                
-            }
+
         }
 
         private void AddSelected()
@@ -188,8 +178,7 @@ namespace LabRegistrator
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged(string propertyName)
         {
-            if (PropertyChanged != null)
-                PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         #endregion
@@ -199,11 +188,14 @@ namespace LabRegistrator
     {
         public ICommand Select { get; set; }
         public ICommand Delete { get; set; }
-        
+
         public ICommand ShowInfo { get; set; }
 
         public NomWrapper(NomenclatureList source, BaseCommand selectAction, BaseCommand deleteAction, BaseCommand showInfo)
         {
+            if (selectAction == null) throw new ArgumentNullException(nameof(selectAction));
+            if (deleteAction == null) throw new ArgumentNullException(nameof(deleteAction));
+            if (showInfo == null) throw new ArgumentNullException(nameof(showInfo));
             id = source.id;
             caption = source.caption;
             group = source.group;
@@ -228,18 +220,12 @@ namespace LabRegistrator
         public void Invert()
         {
             _enabled = false;
-            if (CanExecuteChanged != null)
-            {
-                CanExecuteChanged.Invoke(this, EventArgs.Empty);
-            }
+            CanExecuteChanged?.Invoke(this, EventArgs.Empty);
         }
         public void Enable()
         {
             _enabled = true;
-            if (CanExecuteChanged != null)
-            {
-                CanExecuteChanged.Invoke(this, EventArgs.Empty);
-            }
+            CanExecuteChanged?.Invoke(this, EventArgs.Empty);
         }
 
         public bool CanExecute(object parameter)
@@ -281,3 +267,4 @@ namespace LabRegistrator
         }
     }
 }
+
