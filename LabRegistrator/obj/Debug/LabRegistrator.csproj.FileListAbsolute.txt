@@ -30,11 +30,9 @@ C:\Users\yakovlev.s\Documents\labregistrator\LabRegistrator\obj\Debug\LabRegistr
 C:\Temp\LabRegistrator2\LabRegistrator\bin\Debug\LabRegistrator.exe
 C:\Temp\LabRegistrator2\LabRegistrator\bin\Debug\LabRegistrator.pdb
 C:\Temp\LabRegistrator2\LabRegistrator\obj\Debug\LabRegistrator.csprojResolveAssemblyReference.cache
-C:\Temp\LabRegistrator2\LabRegistrator\obj\Debug\MainWindow.g.cs
 C:\Temp\LabRegistrator2\LabRegistrator\obj\Debug\App.g.cs
 C:\Temp\LabRegistrator2\LabRegistrator\obj\Debug\LabRegistrator_MarkupCompile.cache
 C:\Temp\LabRegistrator2\LabRegistrator\obj\Debug\LabRegistrator_MarkupCompile.lref
-C:\Temp\LabRegistrator2\LabRegistrator\obj\Debug\MainWindow.baml
 C:\Temp\LabRegistrator2\LabRegistrator\obj\Debug\LabRegistrator.g.resources
 C:\Temp\LabRegistrator2\LabRegistrator\obj\Debug\LabRegistrator.Properties.Resources.resources
 C:\Temp\LabRegistrator2\LabRegistrator\obj\Debug\LabRegistrator.csproj.GenerateResource.Cache
@@ -50,3 +48,15 @@ C:\Users\yakovlev.s\Documents\labregistrator\LabRegistrator\bin\Debug\Moq.pdb
 C:\Users\yakovlev.s\Documents\labregistrator\LabRegistrator\bin\Debug\Moq.xml
 C:\Users\yakovlev.s\Documents\labregistrator\LabRegistrator\bin\Debug\Ploeh.AutoFixture.dll
 C:\Users\yakovlev.s\Documents\labregistrator\LabRegistrator\bin\Debug\Ploeh.AutoFixture.xml
+C:\Temp\LabRegistrator2\LabRegistrator\bin\Debug\Autofac.dll
+C:\Temp\LabRegistrator2\LabRegistrator\bin\Debug\Castle.Core.dll
+C:\Temp\LabRegistrator2\LabRegistrator\bin\Debug\Moq.dll
+C:\Temp\LabRegistrator2\LabRegistrator\bin\Debug\Ploeh.AutoFixture.dll
+C:\Temp\LabRegistrator2\LabRegistrator\bin\Debug\Autofac.xml
+C:\Temp\LabRegistrator2\LabRegistrator\bin\Debug\Moq.pdb
+C:\Temp\LabRegistrator2\LabRegistrator\bin\Debug\Moq.xml
+C:\Temp\LabRegistrator2\LabRegistrator\bin\Debug\Ploeh.AutoFixture.xml
+C:\Temp\LabRegistrator2\LabRegistrator\obj\Debug\View\MainWindow.g.cs
+C:\Temp\LabRegistrator2\LabRegistrator\obj\Debug\View\NomenclatureInfo.g.cs
+C:\Temp\LabRegistrator2\LabRegistrator\obj\Debug\View\MainWindow.baml
+C:\Temp\LabRegistrator2\LabRegistrator\obj\Debug\View\NomenclatureInfo.baml

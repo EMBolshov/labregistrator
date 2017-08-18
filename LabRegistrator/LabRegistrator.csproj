@@ -86,7 +86,7 @@
     <Compile Include="HttpManager\reqQuest.cs" />
     <Compile Include="HttpManager\Request.cs" />
     <Compile Include="HttpManager\Response.cs" />
-    <Compile Include="HttpManager\Token.cs" />
+    <Compile Include="HttpManager\MyToken.cs" />
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

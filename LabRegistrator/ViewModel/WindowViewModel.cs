@@ -22,9 +22,7 @@ namespace LabRegistrator
 {
     public class WindowViewModel : INotifyPropertyChanged
     {
-        Token postmantoken = new Token();
-        Contract contract = new Contract();
-        private int _tabNumber = 0;
+       private int _tabNumber = 0;
 
         //public int TabNumber(Gen)
         private string _name;
@@ -33,7 +31,7 @@ namespace LabRegistrator
         {get { return _status; } set { if (_status == value) return; _status = value; OnPropertyChanged(nameof(Status)); } }
         public string Name { get { return _name; } set { if (_name == value) return; _name = value; OnPropertyChanged(nameof(Name)); } }
 
-        public ICommand Msg { get; set; }
+        public ICommand Authorize { get; set; }
         public ICommand GetNomen { get; set; }
         public ICommand AddNomen { get; set; }
 
@@ -41,7 +39,7 @@ namespace LabRegistrator
         public ObservableCollection<NomWrapper> Items { get { return _items; } set { _items = value; OnPropertyChanged(nameof(Items)); } }
 
         private string _contract = "C000035569";
-        private string _token = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjU2NjU0MzNCMjg2ODM1QjFERDg2OTRDRTUzRkYzQUE1RTYyNDFBNUQiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJWbVZET3lob05iSGRocFRPVV84NnBlWWtHbDAifQ.eyJuYmYiOjE1MDIzNjYxMjQsImV4cCI6MTUwMjQwMjEyNCwiaXNzIjoiaHR0cHM6Ly9hdXRoLXN0YWdlLm1lZGxpbngub25saW5lIiwiYXVkIjpbImh0dHBzOi8vYXV0aC1zdGFnZS5tZWRsaW54Lm9ubGluZS9yZXNvdXJjZXMiLCJmaGlyQVBJIl0sImNsaWVudF9pZCI6InRlc3RwZXB5YWthIiwic3ViIjoiZDE3OTBmODEtODQyMi00OWI1LWJkZWYtZjFhMjgwYTZlMWM1IiwiYXV0aF90aW1lIjoxNTAyMzY2MTIzLCJpZHAiOiJsb2NhbCIsImZoaXItZHN0dTIiOiJmaGlyLyovJCoiLCJzY29wZSI6WyJtaXMiXSwiYW1yIjpbInB3ZCJdfQ.n3z5ekk7vqv2FT_l66aFHxOcUQNWjaQ0Q6isr9_Q4YuQVxlA20VAvtKRDuJDgo8O7si5XC7W3LjR5r3AzhhGHgubGuQfn96BtZyA9U_mNzmnZLqK_Bv2U0HmnZIddv50lV0JGDoKrObLH0wGLn6fQ9S0_st5YTNUJJseFxtw-Xz-NqQ1mXUE1rOsyvrUmo0mpicz44HsKiM2eCAJ7RFJQq_5GCMDs4tY46waq_Woes4Dxebno2qVk3KNS5jsBZXPa56yniILfQdxkFA5QLUW5qltb1MzfmqYNgRl02opLRDqdrAdTK8pET9fAfidBdh8t_uLTFXReSPKg3z670ijVg";
+        private string _token = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjU2NjU0MzNCMjg2ODM1QjFERDg2OTRDRTUzRkYzQUE1RTYyNDFBNUQiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJWbVZET3lob05iSGRocFRPVV84NnBlWWtHbDAifQ.eyJuYmYiOjE1MDMwNTI1MjIsImV4cCI6MTUwMzA4ODUyMiwiaXNzIjoiaHR0cHM6Ly9hdXRoLXN0YWdlLm1lZGxpbngub25saW5lIiwiYXVkIjpbImh0dHBzOi8vYXV0aC1zdGFnZS5tZWRsaW54Lm9ubGluZS9yZXNvdXJjZXMiLCJmaGlyQVBJIl0sImNsaWVudF9pZCI6InRlc3RwZXB5YWthIiwic3ViIjoiZDE3OTBmODEtODQyMi00OWI1LWJkZWYtZjFhMjgwYTZlMWM1IiwiYXV0aF90aW1lIjoxNTAzMDUyNDk3LCJpZHAiOiJsb2NhbCIsImZoaXItZHN0dTIiOiJmaGlyLyovJCoiLCJzY29wZSI6WyJtaXMiXSwiYW1yIjpbInB3ZCJdfQ.iPOmGbsQTNAJ8qC0G0xaqLfvu9i2LvBa4Eh_zhG0m23rfWk8BinkVmlyjzpkSo1W07YO8y77OGuYYApoVaoKBwy8F1EgQY-GS9qMC4k_xfD3FeOvCavgXTQppKXkhxGLFXdev7Bjw5WV83U9F0No5nqQt8v3WR8AsP6JxCQgIix5bTimqxKF33jiRLr-Qqvjud1tXyJq35aD3oAdArLaFN0s3Q7hR4YHWq5sZRjRLMGEK30At-UhC4qltqCrHmNVhqjdy4t7pa62-lk_jSbI4jk628co5SC0j-2vweEBB80mgUUz8ke4vKeFYsGiNwKOAbY3j0B74esq_mnLVRTovQ";
 
         private NomWrapper _selectedItem;
         public NomWrapper SelectedItem
@@ -79,7 +77,7 @@ namespace LabRegistrator
         public ObservableCollection<NomWrapper> ChosenItems { get; set; }
         public WindowViewModel()
         {
-            Msg = new BaseCommand(Auth, true);
+            Authorize = new BaseCommand(Auth, true);
             GetNomen = new BaseCommand(ShowNom, true);
             Name = "Text";
             Status = "Выберите действие";
@@ -87,13 +85,15 @@ namespace LabRegistrator
         }
 
         #region Commands
-
         public void Auth()
         {
+            
+            MyToken postmantoken = new MyToken();
+            Contract contract = new Contract();
             // postmantoken.Value = TokenTb.Text;
-            postmantoken.Value = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjU2NjU0MzNCMjg2ODM1QjFERDg2OTRDRTUzRkYzQUE1RTYyNDFBNUQiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJWbVZET3lob05iSGRocFRPVV84NnBlWWtHbDAifQ.eyJuYmYiOjE1MDIyNjM4MzEsImV4cCI6MTUwMjI5OTgzMSwiaXNzIjoiaHR0cHM6Ly9hdXRoLXN0YWdlLm1lZGxpbngub25saW5lIiwiYXVkIjpbImh0dHBzOi8vYXV0aC1zdGFnZS5tZWRsaW54Lm9ubGluZS9yZXNvdXJjZXMiLCJmaGlyQVBJIl0sImNsaWVudF9pZCI6InRlc3RwZXB5YWthIiwic3ViIjoiZDE3OTBmODEtODQyMi00OWI1LWJkZWYtZjFhMjgwYTZlMWM1IiwiYXV0aF90aW1lIjoxNTAyMjYzODMwLCJpZHAiOiJsb2NhbCIsImZoaXItZHN0dTIiOiJmaGlyLyovJCoiLCJzY29wZSI6WyJtaXMiXSwiYW1yIjpbInB3ZCJdfQ.v7j6RHh-nIC-viARGiq-j6Rdx7PJedImorwyyH9XoYEtQJv7cnKHTQlUPeD0Gjq460WttQ_wZFyo8HeIxSNFu-JeU7-NbUlpDxd35EzXMvGMUYc7mZl58FGAiTywpZi0KMDTa2HG_0P1JZMXRWOiUgLCYPapSlVwbRO2gh8p4wvrBJjGP3yDPdvPFvXCyWbwfO4zwu9Bf5_NzKXOrFcDMKduogeFT_eTL8GTx8zsbPsCbmq_78KvsnV1CicuiZQlPqrrl7EUmXc9iPMUnYxcDtUxlulb_ZpCbmccQaMJX9AmjrwZJSsKbG4sEX_aSf8nwnDLXkmEYUMVCLzCgyRzDw";
+            ////postmantoken.Value = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjU2NjU0MzNCMjg2ODM1QjFERDg2OTRDRTUzRkYzQUE1RTYyNDFBNUQiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJWbVZET3lob05iSGRocFRPVV84NnBlWWtHbDAifQ.eyJuYmYiOjE1MDMwNTI1MjIsImV4cCI6MTUwMzA4ODUyMiwiaXNzIjoiaHR0cHM6Ly9hdXRoLXN0YWdlLm1lZGxpbngub25saW5lIiwiYXVkIjpbImh0dHBzOi8vYXV0aC1zdGFnZS5tZWRsaW54Lm9ubGluZS9yZXNvdXJjZXMiLCJmaGlyQVBJIl0sImNsaWVudF9pZCI6InRlc3RwZXB5YWthIiwic3ViIjoiZDE3OTBmODEtODQyMi00OWI1LWJkZWYtZjFhMjgwYTZlMWM1IiwiYXV0aF90aW1lIjoxNTAzMDUyNDk3LCJpZHAiOiJsb2NhbCIsImZoaXItZHN0dTIiOiJmaGlyLyovJCoiLCJzY29wZSI6WyJtaXMiXSwiYW1yIjpbInB3ZCJdfQ.iPOmGbsQTNAJ8qC0G0xaqLfvu9i2LvBa4Eh_zhG0m23rfWk8BinkVmlyjzpkSo1W07YO8y77OGuYYApoVaoKBwy8F1EgQY - GS9qMC4k_xfD3FeOvCavgXTQppKXkhxGLFXdev7Bjw5WV83U9F0No5nqQt8v3WR8AsP6JxCQgIix5bTimqxKF33jiRLr - Qqvjud1tXyJq35aD3oAdArLaFN0s3Q7hR4YHWq5sZRjRLMGEK30At - UhC4qltqCrHmNVhqjdy4t7pa62 - lk_jSbI4jk628co5SC0j - 2vweEBB80mgUUz8ke4vKeFYsGiNwKOAbY3j0B74esq_mnLVRTovQ";
             // ListV.Text = postmantoken.Value.ToString();
-            contract.Value = "C000035569";
+            //contract.Value = "C000035569";
             Status = "Установлены значения для токена и контракта.";
         }
 
@@ -116,19 +116,9 @@ namespace LabRegistrator
 
         private void showAdditional()
         {
-            //var comparePatientPrep = "Указания для исследования: \n";
-            //if (SelectedItem == null) return;
-            //foreach (var cpp in SelectedItem.patient_preparation)
-            //{
-            //    comparePatientPrep += cpp + "\n";
-            //}
-            //MessageBox.Show(comparePatientPrep);
             var vm = new NmWindowViewModel(SelectedItem);
             var showAdd = new NomenclatureInfo(vm);
-            
             showAdd.ShowDialog();
-
-
         }
 
         private void AddSelected()
