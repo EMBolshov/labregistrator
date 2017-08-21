@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Регистратор лабораторных исследований" Height="1000" Width="1350">
 
-    <TabControl TabStripPlacement="Left">
+    <TabControl TabStripPlacement="Left" SelectedIndex="{Binding TabNumber}">
         <TabControl.Resources>
             <Style TargetType="{x:Type TabItem}">
                 <Setter Property="HeaderTemplate">
@@ -24,25 +24,26 @@
                 <Setter Property="Padding" Value="25" />
             </Style>
         </TabControl.Resources>
-        <TabItem Header="Authorization" IsEnabled="True" IsSelected="True">
+        <TabItem Header="Authorization" IsEnabled="False" IsSelected="True">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="50*"></RowDefinition>
-                    <RowDefinition Height="50*"></RowDefinition>
+                    <RowDefinition Height="30*"></RowDefinition>
+                    <RowDefinition Height="30*"></RowDefinition>
                     <RowDefinition Height="50*"></RowDefinition>
                     <RowDefinition Height="150*"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="5*"></ColumnDefinition>
-                    <ColumnDefinition Width="3*"></ColumnDefinition>
-                    <ColumnDefinition Width="3*"></ColumnDefinition>
-                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Label Content="Токен авторизации:" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" />
-                <Label Content="Контракт:" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" FontWeight="Bold" />
-                <TextBox Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" TextAlignment="Center" Text="{Binding postmantoken, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
-                <TextBox Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" TextAlignment="Center" ></TextBox>
-                <Button Content="Продолжить" Height="50" Width="100" Command="{Binding Authorize}" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"></Button> 
+                <StackPanel Grid.Row="0" Orientation="Horizontal">
+                    <Label Content="Токен авторизации:" FontSize="20" FontWeight="Bold" VerticalAlignment="Center"  Margin="50,0,0,0" />
+                    <TextBox VerticalAlignment="Center" Margin="50,0,0,0" FontSize="20" >Укажите токен</TextBox>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Orientation="Horizontal">
+                    <Label Content="Контракт:" FontSize="20" FontWeight="Bold" VerticalAlignment="Center"  Margin="50,0,0,0"  />
+                    <TextBox VerticalAlignment="Center" Margin="150,0,0,0" FontSize="20" >Укажите номер контракта</TextBox>
+                </StackPanel>
+                <Button Content="Продолжить" Height="50" Width="150" Command="{Binding Authorize}" Grid.Row="2" Grid.Column="0"></Button> 
             </Grid>
         </TabItem>
         <TabItem Name="Nomenclature" Header="Nomenclature" IsEnabled="False">
@@ -78,9 +79,8 @@
                 </Grid.ColumnDefinitions>
                 
                 <Label Content="Доступные исследования" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"  Height="62" Width="364" FontWeight="Bold" FontSize="20" Grid.ColumnSpan="3" Margin="91,11,40,1"/>
-                <!--<TextBox Width="150" Height="20" Text="Поиск исследования" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>-->
+                <TextBox Width="150" Height="20" Text="Поиск исследования" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
                 <Label Content="Корзина" Grid.Column="7" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="44" Width="114" IsEnabled="False" FontSize="20" FontWeight="Bold" Margin="33,10,27,18" Foreground="Black" />
-                <!--<Button Content="Выбрать исследование"  Grid.Column="0" Grid.Row="7"  ></Button>-->
                 <Label Content="{Binding Status}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="3" Grid.Row="11" Height="10" Margin="82,32,83,32" Width="10"/>
                 <!--<TextBox Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Column="1" Grid.Row="7"></TextBox>-->
                 <!--<Label Content="{Binding Name}" HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Column="1" Grid.Row="8"></Label>-->

@@ -8,24 +8,15 @@ using System.Threading.Tasks;
 
 namespace LabRegistrator
 {
-    public class MyToken : INotifyPropertyChanged
+    public class MyToken
     {
         private string _token;
+
         public string Token
         {
-            get {return _token;}
-            set
-            {
-                _token = value;
-                this.OnPropertyChanged("Token");
-            }
+            get;
+            set;
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
     }
 }
