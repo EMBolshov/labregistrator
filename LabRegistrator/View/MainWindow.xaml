@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LabRegistrator"
         mc:Ignorable="d"
-        Title="Регистратор лабораторных исследований" Height="1000" Width="1350">
+        Title="Регистратор лабораторных исследований" Height="600" Width="800">
 
     <TabControl TabStripPlacement="Left" SelectedIndex="{Binding TabNumber}">
         <TabControl.Resources>
@@ -24,13 +24,13 @@
                 <Setter Property="Padding" Value="25" />
             </Style>
         </TabControl.Resources>
-        <TabItem Header="Authorization" IsEnabled="False" IsSelected="True">
+        <TabItem Header="Авторизация" IsEnabled="False" IsSelected="True">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="30*"></RowDefinition>
-                    <RowDefinition Height="30*"></RowDefinition>
-                    <RowDefinition Height="50*"></RowDefinition>
-                    <RowDefinition Height="150*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="7*"></RowDefinition>
+                    
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"></ColumnDefinition>
@@ -43,48 +43,33 @@
                     <Label Content="Контракт:" FontSize="20" FontWeight="Bold" VerticalAlignment="Center"  Margin="50,0,0,0"  />
                     <TextBox VerticalAlignment="Center" Margin="150,0,0,0" FontSize="20" >Укажите номер контракта</TextBox>
                 </StackPanel>
-                <Button Content="Продолжить" Height="50" Width="150" Command="{Binding Authorize}" Grid.Row="2" Grid.Column="0"></Button> 
+                <Button Content="Продолжить" Height="50" Width="150" Command="{Binding Authorize}" Grid.Row="2" Grid.Column="0" VerticalAlignment="Top"></Button>
             </Grid>
         </TabItem>
-        <TabItem Name="Nomenclature" Header="Nomenclature" IsEnabled="False">
+        <TabItem Name="Номенклатура" Header="Номенклатура" IsEnabled="False">
 
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="50*"></RowDefinition>
-                    <RowDefinition Height="50*"></RowDefinition>
-                    <RowDefinition Height="50*"></RowDefinition>
-                    <RowDefinition Height="50*"></RowDefinition>
-                    <RowDefinition Height="50*"></RowDefinition>
-                    <RowDefinition Height="50*"></RowDefinition>
-                    <RowDefinition Height="50*"></RowDefinition>
-                    <RowDefinition Height="50*"></RowDefinition>
-                    <RowDefinition Height="50*"></RowDefinition>
-                    <RowDefinition Height="50*"></RowDefinition>
-                    <RowDefinition Height="50*"></RowDefinition>
-                    <RowDefinition Height="50*"></RowDefinition>
-                    <RowDefinition Height="50*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="6*"></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="148*"></ColumnDefinition>
-                    <ColumnDefinition Width="27*"></ColumnDefinition>
-                    <ColumnDefinition Width="175*"></ColumnDefinition>
-                    <ColumnDefinition Width="175*"></ColumnDefinition>
-                    <ColumnDefinition Width="175*"></ColumnDefinition>
-                    <ColumnDefinition Width="58*"></ColumnDefinition>
-                    <ColumnDefinition Width="175*"></ColumnDefinition>
-                    <ColumnDefinition Width="175*"></ColumnDefinition>
-                    <ColumnDefinition Width="175*"></ColumnDefinition>
-                    <ColumnDefinition Width="59*"></ColumnDefinition>
-
+                    <ColumnDefinition Width="4*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="4*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                
-                <Label Content="Доступные исследования" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center"  Height="62" Width="364" FontWeight="Bold" FontSize="20" Grid.ColumnSpan="3" Margin="91,11,40,1"/>
-                <TextBox Width="150" Height="20" Text="Поиск исследования" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBox>
-                <Label Content="Корзина" Grid.Column="7" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="44" Width="114" IsEnabled="False" FontSize="20" FontWeight="Bold" Margin="33,10,27,18" Foreground="Black" />
-                <Label Content="{Binding Status}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="3" Grid.Row="11" Height="10" Margin="82,32,83,32" Width="10"/>
-                <!--<TextBox Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Column="1" Grid.Row="7"></TextBox>-->
-                <!--<Label Content="{Binding Name}" HorizontalAlignment="Center" VerticalAlignment="Center"  Grid.Column="1" Grid.Row="8"></Label>-->
-                <DataGrid AutoGenerateColumns="false" ItemsSource="{Binding Items}" IsReadOnly="True" SelectionMode="Single" SelectedItem="{Binding SelectedItem}" Grid.Column="2" Grid.Row="2" Grid.RowSpan="8" Grid.ColumnSpan="3">
+                <StackPanel Orientation="Vertical">
+                    <Label Content="Доступные исследования" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
+                    <TextBox Text="Поиск исследования" HorizontalAlignment="Center" VerticalAlignment="Bottom" />
+                </StackPanel>
+                <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
+                    <Button Content="Отменить" Height="50" Width="150" Command="{Binding CancelCommand}" HorizontalAlignment="Left"></Button>
+                    <Label Content="{Binding Status}"  VerticalAlignment="Center" Height="10" HorizontalAlignment="Right" />
+                </StackPanel>
+                <Button Content="Продолжить" Height="50" Width="150" Command="{Binding SendNom}" HorizontalAlignment="Right" Grid.Row="2" Grid.Column="2" ></Button>
+                <Label Content="Корзина" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Height="44" Width="114" IsEnabled="False" FontSize="20" FontWeight="Bold"  />
+                <DataGrid AutoGenerateColumns="false" ItemsSource="{Binding Items}" IsReadOnly="True" SelectionMode="Single" SelectedItem="{Binding SelectedItem}" Grid.Column="0" Grid.Row="1">
                     <DataGrid.Columns>
                         <DataGridTemplateColumn Header="Добавить">
                             <DataGridTemplateColumn.CellTemplate>
@@ -107,24 +92,24 @@
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Header="Название исследования">
+                        <DataGridTemplateColumn Header="Исследование">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Label Content="{Binding caption}" ></Label>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Header="Группа исследования">
+                        <DataGridTemplateColumn Header="Группа">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Label Content="{Binding group}" ></Label>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-
                     </DataGrid.Columns>
                 </DataGrid>
-                <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding ChosenItems}" SelectedItem="{Binding CartSelectedItem}" Grid.Column="6" Grid.Row="2" Grid.RowSpan="8" Grid.ColumnSpan="3">
+                
+                <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding ChosenItems}" SelectedItem="{Binding CartSelectedItem}" Grid.Column="2" Grid.Row="1">
                     <DataGrid.Columns>
                         <DataGridTemplateColumn Header="Удалить">
                             <DataGridTemplateColumn.CellTemplate>
@@ -141,14 +126,14 @@
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Header="Название исследования">
+                        <DataGridTemplateColumn Header="Исследование">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Label Content="{Binding caption}" ></Label>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Header="Группа исследования">
+                        <DataGridTemplateColumn Header="Группа">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Label Content="{Binding group}" ></Label>
@@ -157,11 +142,9 @@
                         </DataGridTemplateColumn>
                     </DataGrid.Columns>
                 </DataGrid>
-
-                <!-- <Label Content="{Binding SelectedItem.id}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="3" Grid.Row="10" Height="10" Margin="82,33,83,32" Width="10"/> -->
             </Grid>
         </TabItem>
-        <TabItem Header="Questionarie" IsEnabled="False">
+        <TabItem Header="Опросник" IsEnabled="False">
 
         </TabItem>
     </TabControl>

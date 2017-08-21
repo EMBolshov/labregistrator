@@ -35,6 +35,7 @@ namespace LabRegistrator
         public ICommand Authorize { get; set; }
         public ICommand GetNomen { get; set; }
         public ICommand AddNomen { get; set; }
+        public ICommand CancelCommand { get; set; }
 
         private ObservableCollection<NomWrapper> _items;
         public ObservableCollection<NomWrapper> Items { get { return _items; } set { _items = value; OnPropertyChanged(nameof(Items)); } }
@@ -83,6 +84,7 @@ namespace LabRegistrator
         {
             Authorize = new BaseCommand(Auth, true);
             GetNomen = new BaseCommand(ShowNom, true);
+            CancelCommand = new BaseCommand(Cancel, true);
             Name = "Text";
             Status = "Выберите действие";
             ChosenItems = new ObservableCollection<NomWrapper>();
@@ -118,6 +120,11 @@ namespace LabRegistrator
                 return n;
             }));
 
+        }
+
+        private void Cancel()
+        {
+            TabNumber--;
         }
 
         private void showAdditional()
