@@ -76,7 +76,6 @@
     <Compile Include="HttpManager\Contract.cs" />
     <Compile Include="ViewModel\NmWindowViewModel.cs" />
     <Compile Include="ViewModel\WindowViewModel.cs" />
-    <Compile Include="View\INameProvider.cs" />
     <Compile Include="View\NomenclatureInfo.xaml.cs">
       <DependentUpon>NomenclatureInfo.xaml</DependentUpon>
     </Compile>
