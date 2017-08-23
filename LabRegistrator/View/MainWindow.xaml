@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LabRegistrator"
         mc:Ignorable="d"
-        Title="Регистратор лабораторных исследований" Height="600" Width="800">
+        Title="Регистратор лабораторных исследований" Height="600" Width="800" WindowStyle="ThreeDBorderWindow" ResizeMode="CanResize"
+        WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Window.Resources>
         <LinearGradientBrush x:Key="ButtonBackground" StartPoint="0,0" EndPoint="1,1">
-            <GradientStop Color="#FFD9EDFF" Offset="0"/>
-            <GradientStop Color="#FFC0DEFF" Offset="0.445"/>
-            <GradientStop Color="#FFAFD1F8" Offset="0.53"/>
+            <GradientStop Color="#FFFFFFFF" Offset="0"/>
+            <GradientStop Color="#FFEEEEEE" Offset="0.93"/>
         </LinearGradientBrush>
         <Style TargetType="Button">
             <Setter Property="Template">
@@ -88,6 +88,15 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
+                <Border Background="#FFFFFFFF" />
+                <Border Grid.Row="1" Grid.RowSpan="5" >
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                            <GradientStop Color="#EEEEEEEE" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                </Border>
                 <Label Content="Тестовая клиника" FontSize="20" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
                     <Label Content="Токен авторизации:" FontSize="20" FontWeight="Bold" VerticalAlignment="Center" />
@@ -121,6 +130,16 @@
                     <ColumnDefinition Width="1*"></ColumnDefinition>
                     <ColumnDefinition Width="5*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
+                <Border Background="#FFFFECE6" />
+                <Border Background="#FFFFFFFF" />
+                <Border Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="3" >
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                            <GradientStop Color="#EEEEEEEE" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                </Border>
                 <StackPanel Orientation="Vertical">
                     <Label Content="Доступные исследования" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
                     <TextBox Text="Поиск исследования" HorizontalAlignment="Center" VerticalAlignment="Bottom" />
@@ -170,7 +189,7 @@
                         </DataGridTemplateColumn>
                     </DataGrid.Columns>
                 </DataGrid>
-                
+
                 <DataGrid AutoGenerateColumns="False" ItemsSource="{Binding ChosenItems}" SelectedItem="{Binding CartSelectedItem}" Grid.Column="2" Grid.Row="1">
                     <DataGrid.Columns>
                         <DataGridTemplateColumn Header="Убрать">
@@ -218,6 +237,16 @@
                     <ColumnDefinition Width="5*"></ColumnDefinition>
                     <ColumnDefinition Width="2*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
+                <Border Background="#FFFFECE6" />
+                <Border Background="#FFFFFFFF" />
+                <Border Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="3" >
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                            <GradientStop Color="#EEEEEEEE" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                </Border>
                 <StackPanel Orientation="Vertical" Grid.Column="1">
                     <Label Content="Заполнение опросника" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
                 </StackPanel>
@@ -267,7 +296,7 @@
                 </DataGrid>
             </Grid>
         </TabItem>
-        
+
         <TabItem Header="Преаналитика" IsEnabled="False">
             <Grid>
                 <Grid.RowDefinitions>
@@ -280,6 +309,16 @@
                     <ColumnDefinition Width="5*"></ColumnDefinition>
                     <ColumnDefinition Width="2*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
+                <Border Background="#FFFFECE6" />
+                <Border Background="#FFFFFFFF" />
+                <Border Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="3" >
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                            <GradientStop Color="#EEEEEEEE" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                </Border>
                 <StackPanel Orientation="Vertical" Grid.Column="1">
                     <Label Content="Информация преаналитики" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
                 </StackPanel>
@@ -341,6 +380,15 @@
                     <ColumnDefinition Width="5*"></ColumnDefinition>
                     <ColumnDefinition Width="2*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
+                <Border Background="#FFFFFFFF" />
+                <Border Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="3" >
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                            <GradientStop Color="#EEEEEEEE" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                </Border>
                 <StackPanel Orientation="Vertical" Grid.Column="1">
                     <Label Content="Информация о заказе" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
                 </StackPanel>
@@ -349,7 +397,7 @@
                     <Label Content="{Binding Status}"  VerticalAlignment="Center" Height="10" HorizontalAlignment="Right" />
                 </StackPanel>
                 <Button Content="Отправить заказ" Height="50" Width="150" Command="{Binding SendOrderCommand}" HorizontalAlignment="Right" Grid.Row="2" Grid.Column="2" ></Button>
-               
+
             </Grid>
         </TabItem>
     </TabControl>

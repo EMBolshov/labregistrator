@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Temp\LabRegistrator2\LabRegistrator\App.xaml
-2442889246
+3-934634940
 
-20-1635693743
+21-1783212368
 191348091054
-View\MainWindow.xaml;View\NomenclatureInfo.xaml;
+View\MainWindow.xaml;View\SpecimenSelection.xaml;View\NomenclatureInfo.xaml;
 
-False
+True
 
