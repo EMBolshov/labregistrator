@@ -11,22 +11,17 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.ComponentModel;
 
-
-namespace LabRegistrator
+namespace LabRegistrator.View
 {
     /// <summary>
-    /// Interaction logic for NomenclatureInfo.xaml
+    /// Interaction logic for SpicemenSelection.xaml
     /// </summary>
-    public partial class NomenclatureInfo : Window
+    public partial class SpicemenSelection : Window
     {
-        public NomenclatureInfo(NmWindowViewModel datacontext)
+        public SpicemenSelection()
         {
-            InitializeComponent(); 
-            DataContext = datacontext;
-           
+            InitializeComponent();
         }
-
     }
 }

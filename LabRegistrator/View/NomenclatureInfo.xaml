@@ -5,26 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LabRegistrator"
         mc:Ignorable="d"
-        Title="{Binding NomenclatureID}" Height="600" Width="400"  WindowStartupLocation="CenterScreen">
+        Title="{Binding NomenclatureID}" Height="600" Width="800"  WindowStartupLocation="CenterScreen">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="50*"></RowDefinition>
+            <RowDefinition Height="50*"></RowDefinition>
+            <RowDefinition Height="50*"></RowDefinition>
             <RowDefinition Height="10*"></RowDefinition>
-            <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Label Content="Выберите биоматериал: " Grid.Row="0" FontStretch="ExtraCondensed" FontWeight="Bold" HorizontalAlignment="Center"></Label>
-        <ListBox ItemsSource="{Binding SpecimenChoose}" Grid.Row="1" Margin="25">
+        <Label Content="Описание исследования: " Grid.Row="0" FontStretch="ExtraCondensed" FontWeight="Bold"></Label>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="0">
+            <StackPanel Orientation="Vertical" Width="auto" Height="auto" Margin="25">
+                <TextBlock TextWrapping="WrapWithOverflow" Text="{Binding Description}" Grid.Row="0"></TextBlock>
+            </StackPanel>
+        </ScrollViewer>
+        <Label Content="Подготовка к исследованию: " Grid.Row="1" FontStretch="ExtraCondensed" FontWeight="Bold"></Label>
+        <ListBox ItemsSource="{Binding PatientPrep}" Grid.Row="1" Margin="25">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
-                        <RadioButton Content="{Binding}" />
+                        <TextBlock Text="{Binding}" />
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button Grid.Row="2">Продолжить</Button>
     </Grid>
 </Window>
