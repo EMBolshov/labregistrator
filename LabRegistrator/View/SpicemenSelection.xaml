@@ -1,11 +1,11 @@
-﻿<Window x:Class="LabRegistrator.View.SpicemenSelection"
+﻿<Window x:Class="LabRegistrator.SpicemenSelection"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:LabRegistrator.View"
+        xmlns:local="clr-namespace:LabRegistrator"
         mc:Ignorable="d"
-        Title="SpicemenSelection" Height="350" Width="300">
+        Title="Выбор биоматериала" Height="350" Width="300" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
@@ -16,16 +16,16 @@
             <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
         <Label Content="Выберите биоматериал: " Grid.Row="0" FontStretch="ExtraCondensed" FontWeight="Bold" HorizontalAlignment="Center"></Label>
-        <ListBox ItemsSource="{Binding SpecimenChoose}" Grid.Row="1" Margin="25">
+        <ListBox ItemsSource="{Binding _specimen}" Grid.Row="1" Margin="25">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
-                        <RadioButton Content="{Binding}" />
+                        <RadioButton Content="{Binding description}" GroupName="SpecimenGroup" />
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button Grid.Row="2">Продолжить</Button>
+        <Button Grid.Row="2" Command="{Binding SelectSpecimenCommand}">Продолжить</Button>
     </Grid>
 </Window>
 

@@ -17,6 +17,7 @@ using System.IO;
 using System.Net.Http;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
+//using LabRegistrator.View;
 
 namespace LabRegistrator
 {
@@ -105,7 +106,7 @@ namespace LabRegistrator
             //contract.Value = "C000035569";
             try
             {
-                Token = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjU2NjU0MzNCMjg2ODM1QjFERDg2OTRDRTUzRkYzQUE1RTYyNDFBNUQiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJWbVZET3lob05iSGRocFRPVV84NnBlWWtHbDAifQ.eyJuYmYiOjE1MDM0Nzk0OTIsImV4cCI6MTUwMzUxNTQ5MiwiaXNzIjoiaHR0cHM6Ly9hdXRoLXN0YWdlLm1lZGxpbngub25saW5lIiwiYXVkIjpbImh0dHBzOi8vYXV0aC1zdGFnZS5tZWRsaW54Lm9ubGluZS9yZXNvdXJjZXMiLCJmaGlyQVBJIl0sImNsaWVudF9pZCI6InRlc3RwZXB5YWthIiwic3ViIjoiZDE3OTBmODEtODQyMi00OWI1LWJkZWYtZjFhMjgwYTZlMWM1IiwiYXV0aF90aW1lIjoxNTAzMzk4ODIyLCJpZHAiOiJsb2NhbCIsImZoaXItZHN0dTIiOiJmaGlyLyovJCoiLCJzY29wZSI6WyJtaXMiXSwiYW1yIjpbInB3ZCJdfQ.fmuniY7fCybMoq9a7BocnDuve7z3bN-lp3Z36Lml-0Ok0laYvOZCYj0ip0TEQ8oOecUvQfodhv6C3dlQj_svn6BdZOrY4rCNBAyUQomfDtUiXM5kmAOHk3rSyDj3sZ16BZNriTur2fsM0xrUH6u31Xk-lleYIDAPRcqTPzD4f5Ld-Ep635JQqDnoA3VNdHlwL27Lt9zZVWODer7vq_cR8EZTG-huexwZRVj0GklWFBUtKUdyAtqRKTTiDPiPwtWNJGuNHdNFiN5b6tEgY6m2CWay46i5B39CgRs7afTq-agStXtFmYzPhDB-9KzI_-7vbEzs5zKrYgerBZ7Wi_pr4A";
+                Token = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjU2NjU0MzNCMjg2ODM1QjFERDg2OTRDRTUzRkYzQUE1RTYyNDFBNUQiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJWbVZET3lob05iSGRocFRPVV84NnBlWWtHbDAifQ.eyJuYmYiOjE1MDM1NjAxNDcsImV4cCI6MTUwMzU5NjE0NywiaXNzIjoiaHR0cHM6Ly9hdXRoLXN0YWdlLm1lZGxpbngub25saW5lIiwiYXVkIjpbImh0dHBzOi8vYXV0aC1zdGFnZS5tZWRsaW54Lm9ubGluZS9yZXNvdXJjZXMiLCJmaGlyQVBJIl0sImNsaWVudF9pZCI6InRlc3RwZXB5YWthIiwic3ViIjoiZDE3OTBmODEtODQyMi00OWI1LWJkZWYtZjFhMjgwYTZlMWM1IiwiYXV0aF90aW1lIjoxNTAzNTYwMTQ0LCJpZHAiOiJsb2NhbCIsImZoaXItZHN0dTIiOiJmaGlyLyovJCoiLCJzY29wZSI6WyJtaXMiXSwiYW1yIjpbInB3ZCJdfQ.hBK4MLslkxPpwCcU0Isqoq9u_nIEYCNV6QahXrevxoE6RV76SOS5f2RSFU4oSOWcv22UxTkhyp0qXMXYpE0dhvEKp2bPCUZFHNwICvQFawkpjJdpajVOazKHvtHbHBOUD_yUqC5K-IkPcNJOgntYGAuLaf0jhZbLQo3FcjKxzxQBXmRcVZ5w3FcAO-rTsODd2xMsamGEpswIdGPpHAk8xjsWjQpzE-YvzhE3LMxlWziO7FkE1j1EeM2IFd69d7wV_8oYhoObJbYtohFvr9znx_KEcBgXkRUTU6iJpkK7GjT4ZXJTNdYhjC7IfjV4iF18BPh9khOSHlbCUbipoF-AmA";
                 Contract = "C000035569";
                 Status = "Установлены значения для токена и контракта.";
                 TabNumber = 1;
@@ -159,7 +160,16 @@ namespace LabRegistrator
         private void AddSelected()
         {
             if (SelectedItem != null)
+            {
                 ChosenItems.Add(SelectedItem);
+                if (SelectedItem.specimen.Length > 1)
+                {
+                var vm = new SpicemenSelectionViewModel(SelectedItem);
+                var showAdd = new SpicemenSelection(vm);
+                showAdd.ShowDialog();
+                }
+               
+            }
         }
 
         private void DeleteSelected()
@@ -186,7 +196,6 @@ namespace LabRegistrator
     {
         public ICommand Select { get; set; }
         public ICommand Delete { get; set; }
-
         public ICommand ShowInfo { get; set; }
 
         public NomWrapper(NomenclatureList source, BaseCommand selectAction, BaseCommand deleteAction, BaseCommand showInfo)
@@ -199,6 +208,7 @@ namespace LabRegistrator
             group = source.group;
             description = source.description;
             patient_preparation = source.patient_preparation;
+            specimen = source.specimen;
             Select = selectAction;
             Delete = deleteAction;
             ShowInfo = showInfo;
