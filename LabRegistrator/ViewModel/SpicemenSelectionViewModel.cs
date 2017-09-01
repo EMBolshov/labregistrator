@@ -8,7 +8,7 @@ namespace LabRegistrator
 {
     public class SpicemenSelectionViewModel
     {
-        public Specimen[] _specimen { get; set; }
+        public Specimen[] _specimen { get; set; } 
         public SpicemenSelectionViewModel(NomWrapper nmList)
         {
             _specimen = nmList.specimen;

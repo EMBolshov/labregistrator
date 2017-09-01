@@ -62,3 +62,5 @@ C:\Temp\LabRegistrator2\LabRegistrator\obj\Debug\View\MainWindow.baml
 C:\Temp\LabRegistrator2\LabRegistrator\obj\Debug\View\NomenclatureInfo.baml
 C:\Temp\LabRegistrator2\LabRegistrator\obj\Debug\View\SpicemenSelection.g.cs
 C:\Temp\LabRegistrator2\LabRegistrator\obj\Debug\View\SpicemenSelection.baml
+C:\Users\yakovlev.s\Documents\labregistrator\LabRegistrator\obj\Debug\View\SpicemenSelection.g.cs
+C:\Users\yakovlev.s\Documents\labregistrator\LabRegistrator\obj\Debug\View\SpicemenSelection.baml

@@ -17,6 +17,8 @@ using System.IO;
 using System.Net.Http;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
+using LabRegistrator.Models;
+
 //using LabRegistrator.View;
 
 namespace LabRegistrator
@@ -39,6 +41,8 @@ namespace LabRegistrator
         public ICommand CancelCommand { get; set; }
         public ICommand NextStepCommand { get; set; }
         public ICommand SendOrderCommand { get; set; }
+
+        public ICommand GetTestQuesti { get; set; }
 
         private ObservableCollection<NomWrapper> _items;
         public ObservableCollection<NomWrapper> Items { get { return _items; } set { _items = value; OnPropertyChanged(nameof(Items)); } }
@@ -90,6 +94,7 @@ namespace LabRegistrator
             CancelCommand = new BaseCommand(Cancel, true);
             NextStepCommand = new BaseCommand(NextStep, true);
             SendOrderCommand = new BaseCommand(SendOrder, true);
+            GetTestQuesti = new BaseCommand(getTestQuest, true);
             Name = "Text";
             Status = "Выберите действие";
             ChosenItems = new ObservableCollection<NomWrapper>();
@@ -98,16 +103,8 @@ namespace LabRegistrator
         #region Commands
         public void Auth()
         {
-            // MyToken postmantoken = new MyToken();
-            //Contract contract = new Contract();
-            // = TokenTb.Text;
-            //postmantoken.Value = "INSERT POSTMAN TOKEN HERE";
-            // ListV.Text = postmantoken.Value.ToString();
-            //contract.Value = "C000035569";
             try
             {
-                Token = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjU2NjU0MzNCMjg2ODM1QjFERDg2OTRDRTUzRkYzQUE1RTYyNDFBNUQiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJWbVZET3lob05iSGRocFRPVV84NnBlWWtHbDAifQ.eyJuYmYiOjE1MDM5MjAyMTMsImV4cCI6MTUwMzk1NjIxMywiaXNzIjoiaHR0cHM6Ly9hdXRoLXN0YWdlLm1lZGxpbngub25saW5lIiwiYXVkIjpbImh0dHBzOi8vYXV0aC1zdGFnZS5tZWRsaW54Lm9ubGluZS9yZXNvdXJjZXMiLCJmaGlyQVBJIl0sImNsaWVudF9pZCI6InRlc3RwZXB5YWthIiwic3ViIjoiZDE3OTBmODEtODQyMi00OWI1LWJkZWYtZjFhMjgwYTZlMWM1IiwiYXV0aF90aW1lIjoxNTAzOTIwMTczLCJpZHAiOiJsb2NhbCIsImZoaXItZHN0dTIiOiJmaGlyLyovJCoiLCJzY29wZSI6WyJtaXMiXSwiYW1yIjpbInB3ZCJdfQ.PVJ2E3B8qA596BRqxWV4mMpWu_4oVQ2SIq-AS3LGQNjicTbBFCxXWAR36001B_LUiWpeqcx5eXMuofHMsHvg6vZ9Fe2f1VFDj3ku1MKYy1p2CbVbXBKLSpffHUH9o2YbyPk7QfVd_AVwO597RW_h6EUt65zyseq4E9iXNUkpZys7AH9GpmjQCWc5VNwkVCk9bKtdKR1SMh8hfLAVciQZUa3VHJ5vBcuEOAAdX1_uj8CYt9bGonTzIDeoHVu3Fihu0mztJhtpnq20ZtZym-kK_reTotsuYsDsWrDwGIyZWCWwADfZhNe4wMT-YgdXwg_2D1l7hw6kN2LTdiC3jkupjA";
-                Contract = "C000035569";
                 Status = "Установлены значения для токена и контракта.";
                 TabNumber = 1;
                 ShowNom();
@@ -119,11 +116,18 @@ namespace LabRegistrator
            
         }
 
+        public void getTestQuest()
+        {
+            var httpResp = new Response();
+            var requestn = new RequestToMDO();
+            var response = httpResp.ResponseBasicHandler<QuestinaryRequestModel[]>(requestn.getQuestinary());
+        }
+
         public void ShowNom()
         {
-            Response httpResp = new Response();
-            reqNomenclature requestN = new reqNomenclature();
-            var response = httpResp.ResponseBasicHandler<NomenclatureList[]>((requestN.basicRequest("nomenclature", Contract, Token)));
+            var httpResp = new Response();
+            var requestN = new RequestToMDO();
+            var response = httpResp.ResponseBasicHandler<NomenclatureList[]>(requestN.getNomenclature());
             Items = new ObservableCollection<NomWrapper>(response.Select(x =>
             {
                 var add = new OneTimeCommand(() => { AddSelected(); }, true);
@@ -135,6 +139,11 @@ namespace LabRegistrator
             }));
 
         }
+
+        //private void WrapNomenList(NomenclatureList[] nomen)
+        //{
+            
+        //}
 
         private void Cancel()
         {

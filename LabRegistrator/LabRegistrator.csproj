@@ -74,6 +74,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="HttpManager\Contract.cs" />
+    <Compile Include="HttpManager\QuestinaryRequest.cs" />
+    <Compile Include="Models\QuestinaryRequestModel.cs" />
     <Compile Include="ViewModel\NmWindowViewModel.cs" />
     <Compile Include="ViewModel\SpicemenSelectionViewModel.cs" />
     <Compile Include="ViewModel\WindowViewModel.cs" />
@@ -82,8 +84,6 @@
     </Compile>
     <Compile Include="Models\NomenclatureModel.cs" />
     <Compile Include="Models\QuestinaryModel.cs" />
-    <Compile Include="HttpManager\reqNomenclature.cs" />
-    <Compile Include="HttpManager\reqQuest.cs" />
     <Compile Include="HttpManager\Request.cs" />
     <Compile Include="HttpManager\Response.cs" />
     <Compile Include="HttpManager\MyToken.cs" />
