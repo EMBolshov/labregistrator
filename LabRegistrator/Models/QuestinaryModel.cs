@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace LabRegistrator
 {
-    class QuestianaryModel
-    {
-
-        public class Rootobject
+    
+        public class QuestinaryBasicModel
         {
             public string resourceType { get; set; }
             public string status { get; set; }
@@ -52,5 +50,5 @@ namespace LabRegistrator
             public string code { get; set; }
         }
 
-    }
+    
 }

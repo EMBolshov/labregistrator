@@ -250,50 +250,15 @@
                 <StackPanel Orientation="Vertical" Grid.Column="1">
                     <Label Content="Заполнение опросника" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
                 </StackPanel>
+                <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1">
+                    <Label Content="Заполнение опросика" HorizontalContentAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" Visibility="Collapsed"/>
+                </StackPanel>
+                
                 <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
                     <Button Content="Отменить" Height="50" Width="150" Command="{Binding CancelCommand}" HorizontalAlignment="Left"></Button>
                     <Label Content="{Binding Status}"  VerticalAlignment="Center" Height="10" HorizontalAlignment="Right" />
                 </StackPanel>
                 <Button Content="Продолжить" Height="50" Width="150" Command="{Binding NextStepCommand}" HorizontalAlignment="Right" Grid.Row="2" Grid.Column="2" ></Button>
-                <DataGrid AutoGenerateColumns="false" ItemsSource="{Binding Items}" IsReadOnly="True" SelectionMode="Single" SelectedItem="{Binding SelectedItem}" Grid.Column="1" Grid.Row="1">
-                    <DataGrid.Columns>
-                        <DataGridTemplateColumn Header="Выбрать">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Button Command="{Binding Select}" ToolTip="Добавить в корзину">+</Button>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Header="ДопИнфо">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Button Command="{Binding ShowInfo}" ToolTip="Дополнительная информация">?</Button>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Header="HxID" >
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Label Content="{Binding id}" ></Label>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Header="Исследование">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Label Content="{Binding caption}" ></Label>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                        <DataGridTemplateColumn Header="Группа">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Label Content="{Binding group}" ></Label>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                    </DataGrid.Columns>
-                </DataGrid>
             </Grid>
         </TabItem>
 

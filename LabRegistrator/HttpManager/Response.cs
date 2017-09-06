@@ -24,7 +24,6 @@ namespace LabRegistrator
             StreamReader ResponseStreamReader = new StreamReader(getResponseToStream);
             var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
             var str = ResponseStreamReader.ReadToEnd().Replace(@"""..._code"":null""", @"""undefined""");
-            // var str = ResponseStreamReader.ReadToEnd();
             var jsonResponse = serializer.Deserialize<T>(str);
             return jsonResponse;
   

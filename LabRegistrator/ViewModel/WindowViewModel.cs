@@ -120,7 +120,7 @@ namespace LabRegistrator
         {
             var httpResp = new Response();
             var requestn = new RequestToMDO();
-            var response = httpResp.ResponseBasicHandler<QuestinaryRequestModel[]>(requestn.getQuestinary());
+            var response = httpResp.ResponseBasicHandler<QuestinaryBasicModel>(requestn.getQuestinary());
         }
 
         public void ShowNom()
