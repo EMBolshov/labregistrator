@@ -11,18 +11,6 @@ using LabRegistrator.Models;
 
 namespace LabRegistrator
 {
-    //TODO Interface
-
-    interface IRequestToMDO
-    {
-        WebRequest getNomenclature();
-
-        WebRequest getQuestinary();
-        // WebRequest sendToPreanalitic();
-
-
-    }
-
     class RequestToMDO : IRequestToMDO
     {
 
@@ -31,28 +19,26 @@ namespace LabRegistrator
             contract = "C000035569",
             analyticsrequests = new []
             {
-                new analyticsrequests{id = "001.028",specimen_code = "122555007",bodysite_code = "null",container_type = "null" },
+                new analyticsrequests {id = "001.028",specimen_code = "122555007",bodysite_code = "null",container_type = "null" },
             } 
            
         };
 
-        protected static string headtoken = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjU2NjU0MzNCMjg2ODM1QjFERDg2OTRDRTUzRkYzQUE1RTYyNDFBNUQiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJWbVZET3lob05iSGRocFRPVV84NnBlWWtHbDAifQ.eyJuYmYiOjE1MDQ2NzkxNDAsImV4cCI6MTUwNDcxNTE0MCwiaXNzIjoiaHR0cHM6Ly9hdXRoLXN0YWdlLm1lZGxpbngub25saW5lIiwiYXVkIjpbImh0dHBzOi8vYXV0aC1zdGFnZS5tZWRsaW54Lm9ubGluZS9yZXNvdXJjZXMiLCJmaGlyQVBJIl0sImNsaWVudF9pZCI6InRlc3RwZXB5YWthIiwic3ViIjoiZDE3OTBmODEtODQyMi00OWI1LWJkZWYtZjFhMjgwYTZlMWM1IiwiYXV0aF90aW1lIjoxNTA0Njc5MTM4LCJpZHAiOiJsb2NhbCIsImZoaXItZHN0dTIiOiJmaGlyLyovJCoiLCJzY29wZSI6WyJtaXMiXSwiYW1yIjpbInB3ZCJdfQ.M12o4-XQdlTvRmtUzgmQA0ecLa4d3dRBBwc1TycapUv1nGDS8JvCoAkf1H5dRSAoa0cuDobVNUiIE7V7LPWboHmMvffHYWLpB_SbF8QkGpvK7-oDIJauwld_3Meu1zzEtco0hNrAtc1r1Zi8jD-wUXMw9-XbJWhhzVaomuajUAJeKMZr8epmaAhbu23pyN1_nmBRN-6UQOnFKXUgh6CsU8U94divJVOzEmVTV4Kkwalc3_Tkb8oj98j80Ftlgj8ePdh1fHYOcjQvwLYjbp3qeWd0qYhjjG1StmLbmABDRpOfQkQxNBEOMgme1UVu6XbEGoi_oUwoA22XpMTBZ1vRMg";
-        protected static string url = "https://api-stage.medlinx.online/";
+        protected static string Headtoken = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjU2NjU0MzNCMjg2ODM1QjFERDg2OTRDRTUzRkYzQUE1RTYyNDFBNUQiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJWbVZET3lob05iSGRocFRPVV84NnBlWWtHbDAifQ.eyJuYmYiOjE1MDQ2NzkxNDAsImV4cCI6MTUwNDcxNTE0MCwiaXNzIjoiaHR0cHM6Ly9hdXRoLXN0YWdlLm1lZGxpbngub25saW5lIiwiYXVkIjpbImh0dHBzOi8vYXV0aC1zdGFnZS5tZWRsaW54Lm9ubGluZS9yZXNvdXJjZXMiLCJmaGlyQVBJIl0sImNsaWVudF9pZCI6InRlc3RwZXB5YWthIiwic3ViIjoiZDE3OTBmODEtODQyMi00OWI1LWJkZWYtZjFhMjgwYTZlMWM1IiwiYXV0aF90aW1lIjoxNTA0Njc5MTM4LCJpZHAiOiJsb2NhbCIsImZoaXItZHN0dTIiOiJmaGlyLyovJCoiLCJzY29wZSI6WyJtaXMiXSwiYW1yIjpbInB3ZCJdfQ.M12o4-XQdlTvRmtUzgmQA0ecLa4d3dRBBwc1TycapUv1nGDS8JvCoAkf1H5dRSAoa0cuDobVNUiIE7V7LPWboHmMvffHYWLpB_SbF8QkGpvK7-oDIJauwld_3Meu1zzEtco0hNrAtc1r1Zi8jD-wUXMw9-XbJWhhzVaomuajUAJeKMZr8epmaAhbu23pyN1_nmBRN-6UQOnFKXUgh6CsU8U94divJVOzEmVTV4Kkwalc3_Tkb8oj98j80Ftlgj8ePdh1fHYOcjQvwLYjbp3qeWd0qYhjjG1StmLbmABDRpOfQkQxNBEOMgme1UVu6XbEGoi_oUwoA22XpMTBZ1vRMg";
+        protected static string Url = "https://api-stage.medlinx.online/";
         private string _contract = "C000035569";
-
-       
-
+        //TODO: Опросник идёт с бандлом
         public WebRequest getNomenclature()
         {
             try
             {
-                var webRequest = (HttpWebRequest) WebRequest.Create(url + "nomenclature" + "?contract=" + this._contract);
+                var webRequest = (HttpWebRequest) WebRequest.Create(Url + "nomenclature" + "?contract=" + this._contract);
                 if (webRequest != null)
                 {
                     webRequest.Method = "GET";
                     webRequest.Timeout = 20000;
                     webRequest.ContentType = "application/json";
-                    webRequest.Headers.Add("Authorization", "Bearer " + headtoken);
+                    webRequest.Headers.Add("Authorization", "Bearer " + Headtoken);
                     return webRequest;
                 }
             }
@@ -68,13 +54,13 @@ namespace LabRegistrator
             var serializedModel = QuestinaryModelToJson();
             try
             {
-                var webRequest = (HttpWebRequest) WebRequest.Create(url + "questionnaire");
+                var webRequest = (HttpWebRequest) WebRequest.Create(Url + "questionnaire");
                 if (webRequest != null)
                 {
                     webRequest.Method = "POST";
                     webRequest.ContentType = "application/json";
                     webRequest.Timeout = 20000;
-                    webRequest.Headers.Add("Authorization", "Bearer " + headtoken);
+                    webRequest.Headers.Add("Authorization", "Bearer " + Headtoken);
 
                     using (var streamWritter = new StreamWriter(webRequest.GetRequestStream()))
                     {

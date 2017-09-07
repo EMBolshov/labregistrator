@@ -41,7 +41,6 @@ namespace LabRegistrator
         public ICommand CancelCommand { get; set; }
         public ICommand NextStepCommand { get; set; }
         public ICommand SendOrderCommand { get; set; }
-
         public ICommand GetTestQuesti { get; set; }
 
         private ObservableCollection<NomWrapper> _items;
