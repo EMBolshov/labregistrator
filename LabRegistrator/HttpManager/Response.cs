@@ -11,10 +11,6 @@ using System.Windows;
 
 namespace LabRegistrator
 {
-
-    /// <summary>
-    /// Базовый класс для ответов.
-    /// </summary>
     class Response
     {
         public T ResponseBasicHandler<T>(WebRequest HttpResponse)

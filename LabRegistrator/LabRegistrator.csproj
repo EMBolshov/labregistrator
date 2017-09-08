@@ -74,6 +74,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="HttpManager\Contract.cs" />
+    <Compile Include="HttpManager\IRequestToMDO.cs" />
     <Compile Include="HttpManager\QuestinaryRequest.cs" />
     <Compile Include="Models\QuestinaryRequestModel.cs" />
     <Compile Include="ViewModel\NmWindowViewModel.cs" />

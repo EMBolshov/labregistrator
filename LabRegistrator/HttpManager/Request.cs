@@ -11,7 +11,7 @@ using LabRegistrator.Models;
 
 namespace LabRegistrator
 {
-    class RequestToMDO : IRequestToMDO
+   class RequestToMDO : IRequestToMDO
     {
 
         public  QuestinaryRequestModel testRequest = new QuestinaryRequestModel

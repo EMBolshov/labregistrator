@@ -148,7 +148,7 @@
                     <Button Content="Отменить" Height="50" Width="150" Command="{Binding CancelCommand}" HorizontalAlignment="Left"></Button>
                     <Label Content="{Binding Status}"  VerticalAlignment="Center" Height="10" HorizontalAlignment="Right" />
                 </StackPanel>
-                <Button Content="Продолжить" Height="50" Width="150" Command="{Binding GetTestQuesti}" HorizontalAlignment="Right" Grid.Row="2" Grid.Column="2" ></Button>
+                <Button Content="Продолжить" Height="50" Width="150" Command="{Binding NextStepCommand}" HorizontalAlignment="Right" Grid.Row="2" Grid.Column="2"></Button>
                 <Label Content="Корзина" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="44" Width="114" FontSize="20" FontWeight="Bold"  />
                 <DataGrid AutoGenerateColumns="false" ItemsSource="{Binding Items}" IsReadOnly="True" SelectionMode="Single" SelectedItem="{Binding SelectedItem}" Grid.Column="0" Grid.Row="1">
                     <DataGrid.Columns>
@@ -239,7 +239,7 @@
                 </Grid.ColumnDefinitions>
                 <Border Background="#FFFFECE6" />
                 <Border Background="#FFFFFFFF" />
-                <Border Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="3" >
+                <Border Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2" >
                     <Border.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="#FFFFFFFF" Offset="0"/>
@@ -250,9 +250,33 @@
                 <StackPanel Orientation="Vertical" Grid.Column="1">
                     <Label Content="Заполнение опросника" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
                 </StackPanel>
-                <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1">
-                    <Label Content="Заполнение опросика" HorizontalContentAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" Visibility="Collapsed"/>
+                <ScrollViewer Grid.Column="1" Grid.Row="1">
+                    <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1">
+                    <Label Content="Персональные данные" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold" Visibility="Visible"></Label>
+                    <Label Content="Адрес проживания: " VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible"></Label>
+                    <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Visible" Width="350"></TextBox>
+                    <Label Content="Тип удостоверения личности: " VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible"></Label>
+                    <ComboBox Margin="0,0,200,0"></ComboBox>
+                    <Label Content="Код контингента (отчетность по ВИЧ): " VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible"></Label>
+                    <ComboBox Margin="0,0,200,0"></ComboBox>
+
+                    <Label Content="Принимаемые препараты/оказываемое лечение" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold" Visibility="Visible"></Label>
+                    <Label Content="Ведется ли прием антибактериальных препаратов?" VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible"></Label>
+                    <ComboBox Margin="0,0,200,0"></ComboBox>
+                    <Label Content="Ведется ли прием антикоагулянтов?" VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible"></Label>
+                    <ComboBox Margin="0,0,200,0"></ComboBox>
+                    <Label Content="Укажите принимаемые препараты: " VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible"></Label>
+                    <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Visible" Width="350"></TextBox>
+                    <Label Content="Ведется ли гормон-заместительная терапия?" VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible"></Label>
+                    <ComboBox Margin="0,0,200,0"></ComboBox>
+                    <Label Content="Укажите какое лечение проводилось: " VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible"></Label>
+                    <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Visible" Width="350"></TextBox>
+
+
+
+
                 </StackPanel>
+                    </ScrollViewer>
                 
                 <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
                     <Button Content="Отменить" Height="50" Width="150" Command="{Binding CancelCommand}" HorizontalAlignment="Left"></Button>
