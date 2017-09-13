@@ -26,8 +26,19 @@ namespace LabRegistrator
     public class WindowViewModel : INotifyPropertyChanged
     {
         private int _tabNumber;
-        
         public int TabNumber { get { return _tabNumber; } set { if (_tabNumber == value) return; _tabNumber = value; OnPropertyChanged(nameof(TabNumber)); } }
+
+        private ObservableCollection<QuestinaryRequestModel> testReq;
+
+        public ObservableCollection<QuestinaryRequestModel> SendQuestiReq
+        {
+            get { return testReq; }
+            set
+            {
+                testReq = value;
+                OnPropertyChanged(nameof(SendQuestiReq));
+            }
+        }
 
         private string _name;
         private string _status;
@@ -170,13 +181,6 @@ namespace LabRegistrator
             if (SelectedItem != null)
             {
                 ChosenItems.Add(SelectedItem);
-                if (SelectedItem.specimen.Length > 1)
-                {
-                var vm = new SpicemenSelectionViewModel(SelectedItem);
-                var showAdd = new SpicemenSelection(vm);
-                showAdd.ShowDialog();
-                }
-               
             }
         }
 

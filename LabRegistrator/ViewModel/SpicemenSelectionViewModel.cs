@@ -14,9 +14,5 @@ namespace LabRegistrator
             _specimen = nmList.specimen;
         }
 
-        public void SelectSpecimenCommand()
-        {
-            
-        }
     }
 }

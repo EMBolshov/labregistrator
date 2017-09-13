@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LabRegistrator
+﻿namespace LabRegistrator
 {
-
     public class Rootobject
     {
         public NomenclatureList[] Nomenclature { get; set; }
@@ -44,6 +37,4 @@ namespace LabRegistrator
         public object container_type { get; set; }
         public string container_name { get; set; }
     }
-
-
 }

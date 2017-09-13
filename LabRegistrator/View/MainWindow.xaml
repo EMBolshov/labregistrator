@@ -271,11 +271,33 @@
                     <ComboBox Margin="0,0,200,0"></ComboBox>
                     <Label Content="Укажите какое лечение проводилось: " VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible"></Label>
                     <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Visible" Width="350"></TextBox>
-
-
-
-
-                </StackPanel>
+                        
+                    <Label Content="Клинические данные: " VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold" Visibility="Visible"></Label>
+                    <Label Content="Рост: " VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible"></Label>
+                    <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Visible" Width="350"></TextBox>
+                    <Label Content="Вес: " VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible"></Label>
+                    <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Visible" Width="350"></TextBox>
+                    <Label Content="Курение: " VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible"></Label>
+                    <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Visible" Width="350"></TextBox>
+                        <Label Content="Клинический диагноз: " VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible"></Label>
+                        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Visible" Width="350"></TextBox>
+                        <Label Content="Наличие диабета в анамнезе: " VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible"></Label>
+                        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Visible" Width="350"></TextBox>
+                        <Label Content="Дополнительные клинические данные: " VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible"></Label>
+                        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Visible" Width="350"></TextBox>
+                        <Label Content="Диурез(мл): " VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible"></Label>
+                        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Visible" Width="350"></TextBox>
+                        <Label Content="Первый день последней менструации: " VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Collapsed"></Label>
+                        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Collapsed" Width="350"></TextBox>
+                        <Label Content="Последний день последней менструации: " VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Collapsed"></Label>
+                        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Collapsed" Width="350"></TextBox>
+                        <Label Content="Пременопауза или постменопауза: " VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Collapsed"></Label>
+                        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Collapsed" Width="350"></TextBox>
+                        <Label Content="Фаза цикла: " VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Collapsed"></Label>
+                        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Collapsed" Width="350"></TextBox>
+                        <Label Content="Неделя беременности: " VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Collapsed"></Label>
+                        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Collapsed" Width="350"></TextBox>
+                    </StackPanel>
                     </ScrollViewer>
                 
                 <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
