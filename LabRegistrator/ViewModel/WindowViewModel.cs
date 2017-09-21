@@ -32,7 +32,11 @@ namespace LabRegistrator
 
         public ObservableCollection<QuestinaryRequestModel> SendQuestiReq
         {
-            get { return testReq; }
+            get
+            {
+                return testReq;
+            }
+
             set
             {
                 testReq = value;
@@ -110,7 +114,6 @@ namespace LabRegistrator
             ChosenItems = new ObservableCollection<NomWrapper>();
         }
 
-        #region Commands
         public void Auth()
         {
             try
@@ -180,6 +183,11 @@ namespace LabRegistrator
         {
             if (SelectedItem != null)
             {
+                var vm = new SpicemenSelectionViewModel(SelectedItem);
+                var showAdd = new SpicemenSelection(vm);
+                if (vm.Specimen.Length != 0) {
+                    showAdd.ShowDialog();
+                }
                 ChosenItems.Add(SelectedItem);
             }
         }
@@ -190,18 +198,23 @@ namespace LabRegistrator
                 ChosenItems.Remove(CartSelectedItem);
         }
 
-        #endregion
-
-        #region INPC
-
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+    }
 
-        #endregion
+    public class QuestiWrapper : NomenclatureList
+    {
+        private Specimen[] specimen;
+        public QuestiWrapper(NomenclatureList source)
+        {
+            id = source.id;
+            specimen = source.specimen;
+            
+        }
     }
 
     public class NomWrapper : NomenclatureList
