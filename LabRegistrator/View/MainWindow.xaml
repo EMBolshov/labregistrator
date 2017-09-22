@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LabRegistrator"
         mc:Ignorable="d"
-        Title="Регистратор лабораторных исследований" Height="600" Width="800" WindowStyle="ThreeDBorderWindow" ResizeMode="CanResize"
+        Title="Регистратор лабораторных исследований" Height="625" Width="800" WindowStyle="ThreeDBorderWindow" ResizeMode="CanResize"
         WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Window.Resources>
         <LinearGradientBrush x:Key="ButtonBackground" StartPoint="0,0" EndPoint="1,1">
@@ -144,10 +144,18 @@
                     <Label Content="Доступные исследования" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" FontSize="20"/>
                     <TextBox Text="Поиск исследования" HorizontalAlignment="Center" VerticalAlignment="Bottom" />
                 </StackPanel>
-                <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
+                <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
                     <Button Content="Отменить" Height="50" Width="150" Command="{Binding CancelCommand}" HorizontalAlignment="Left"></Button>
                     <Label Content="{Binding Status}"  VerticalAlignment="Center" Height="10" HorizontalAlignment="Right" />
                 </StackPanel>
+
+                <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
+                    <Button Content="Отменить" Height="50" Width="150" Command="{Binding CancelCommand}" HorizontalAlignment="Left"></Button>
+                    <ScrollViewer>
+                    <TextBox Text="{Binding testJson}"  VerticalAlignment="Center" Height="111" HorizontalAlignment="Right" Margin="0,10" Width="223" />
+                    </ScrollViewer>
+                </StackPanel>
+
                 <Button Content="Продолжить" Height="50" Width="150" Command="{Binding NextStepCommand}" HorizontalAlignment="Right" Grid.Row="2" Grid.Column="2"></Button>
                 <Label Content="Корзина" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" Height="44" Width="114" FontSize="20" FontWeight="Bold"  />
                 <DataGrid AutoGenerateColumns="false" ItemsSource="{Binding Items}" IsReadOnly="True" SelectionMode="Single" SelectedItem="{Binding SelectedItem}" Grid.Column="0" Grid.Row="1">
@@ -252,33 +260,33 @@
                 </StackPanel>
                 <ScrollViewer Grid.Column="1" Grid.Row="1">
                     <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1">
-                    <Label Content="Персональные данные" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold" Visibility="Visible"></Label>
-                    <Label Content="Адрес проживания: " VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible"></Label>
-                    <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Visible" Width="350"></TextBox>
-                    <Label Content="Тип удостоверения личности: " VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible"></Label>
-                    <ComboBox Margin="0,0,200,0"></ComboBox>
-                    <Label Content="Код контингента (отчетность по ВИЧ): " VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible"></Label>
-                    <ComboBox Margin="0,0,200,0"></ComboBox>
+                        <Label Content="Персональные данные" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold" Visibility="Visible"></Label>
+                        <Label Content="Адрес проживания: " VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible"></Label>
+                        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Visible" Width="350"></TextBox>
+                        <Label Content="Тип удостоверения личности: " VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible"></Label>
+                        <ComboBox Margin="0,0,200,0"></ComboBox>
+                        <Label Content="Код контингента (отчетность по ВИЧ): " VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible"></Label>
+                        <ComboBox Margin="0,0,200,0"></ComboBox>
 
-                    <Label Content="Принимаемые препараты/оказываемое лечение" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold" Visibility="Visible"></Label>
-                    <Label Content="Ведется ли прием антибактериальных препаратов?" VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible"></Label>
-                    <ComboBox Margin="0,0,200,0"></ComboBox>
-                    <Label Content="Ведется ли прием антикоагулянтов?" VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible"></Label>
-                    <ComboBox Margin="0,0,200,0"></ComboBox>
-                    <Label Content="Укажите принимаемые препараты: " VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible"></Label>
-                    <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Visible" Width="350"></TextBox>
-                    <Label Content="Ведется ли гормон-заместительная терапия?" VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible"></Label>
-                    <ComboBox Margin="0,0,200,0"></ComboBox>
-                    <Label Content="Укажите какое лечение проводилось: " VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible"></Label>
-                    <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Visible" Width="350"></TextBox>
-                        
-                    <Label Content="Клинические данные: " VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold" Visibility="Visible"></Label>
-                    <Label Content="Рост: " VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible"></Label>
-                    <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Visible" Width="350"></TextBox>
-                    <Label Content="Вес: " VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible"></Label>
-                    <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Visible" Width="350"></TextBox>
-                    <Label Content="Курение: " VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible"></Label>
-                    <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Visible" Width="350"></TextBox>
+                        <Label Content="Принимаемые препараты/оказываемое лечение" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold" Visibility="Visible"></Label>
+                        <Label Content="Ведется ли прием антибактериальных препаратов?" VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible"></Label>
+                        <ComboBox Margin="0,0,200,0"></ComboBox>
+                        <Label Content="Ведется ли прием антикоагулянтов?" VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible"></Label>
+                        <ComboBox Margin="0,0,200,0"></ComboBox>
+                        <Label Content="Укажите принимаемые препараты: " VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible"></Label>
+                        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Visible" Width="350"></TextBox>
+                        <Label Content="Ведется ли гормон-заместительная терапия?" VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible"></Label>
+                        <ComboBox Margin="0,0,200,0"></ComboBox>
+                        <Label Content="Укажите какое лечение проводилось: " VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible"></Label>
+                        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Visible" Width="350"></TextBox>
+
+                        <Label Content="Клинические данные: " VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold" Visibility="Visible"></Label>
+                        <Label Content="Рост: " VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible"></Label>
+                        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Visible" Width="350"></TextBox>
+                        <Label Content="Вес: " VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible"></Label>
+                        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Visible" Width="350"></TextBox>
+                        <Label Content="Курение: " VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible"></Label>
+                        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Visible" Width="350"></TextBox>
                         <Label Content="Клинический диагноз: " VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible"></Label>
                         <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Visible" Width="350"></TextBox>
                         <Label Content="Наличие диабета в анамнезе: " VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Visible"></Label>
@@ -298,8 +306,8 @@
                         <Label Content="Неделя беременности: " VerticalAlignment="Top" HorizontalAlignment="Left" Visibility="Collapsed"></Label>
                         <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Collapsed" Width="350"></TextBox>
                     </StackPanel>
-                    </ScrollViewer>
-                
+                </ScrollViewer>
+
                 <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
                     <Button Content="Отменить" Height="50" Width="150" Command="{Binding CancelCommand}" HorizontalAlignment="Left"></Button>
                     <Label Content="{Binding Status}"  VerticalAlignment="Center" Height="10" HorizontalAlignment="Right" />

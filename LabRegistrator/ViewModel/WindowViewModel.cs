@@ -18,7 +18,6 @@ using System.Net.Http;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 using LabRegistrator.Models;
-
 //using LabRegistrator.View;
 
 namespace LabRegistrator
@@ -26,7 +25,20 @@ namespace LabRegistrator
     public class WindowViewModel : INotifyPropertyChanged
     {
         private int _tabNumber;
-        public int TabNumber { get { return _tabNumber; } set { if (_tabNumber == value) return; _tabNumber = value; OnPropertyChanged(nameof(TabNumber)); } }
+
+        public int TabNumber
+        {
+            get
+            {
+                return _tabNumber;
+            }
+            set
+            {
+                if (_tabNumber == value) return;
+                _tabNumber = value;
+                OnPropertyChanged(nameof(TabNumber));
+            }
+        }
 
         private ObservableCollection<QuestinaryRequestModel> testReq;
 
@@ -46,9 +58,33 @@ namespace LabRegistrator
 
         private string _name;
         private string _status;
+
         public string Status
-        {get { return _status; } set { if (_status == value) return; _status = value; OnPropertyChanged(nameof(Status)); } }
-        public string Name { get { return _name; } set { if (_name == value) return; _name = value; OnPropertyChanged(nameof(Name)); } }
+        {
+            get
+            {
+                return _status;
+            }
+            set
+            {
+                if (_status == value) return;
+                _status = value; OnPropertyChanged(nameof(Status));
+            }
+        }
+
+        public string Name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                if (_name == value) return;
+                _name = value; OnPropertyChanged(nameof(Name));
+            }
+
+        }
 
         public ICommand Authorize { get; set; }
         public ICommand GetNomen { get; set; }
@@ -59,14 +95,42 @@ namespace LabRegistrator
         public ICommand GetTestQuesti { get; set; }
 
         private ObservableCollection<NomWrapper> _items;
-        public ObservableCollection<NomWrapper> Items { get { return _items; } set { _items = value; OnPropertyChanged(nameof(Items)); } }
+        public ObservableCollection<NomWrapper> Items {
+            get
+            {
+                return _items;
+            }
+            set
+            {
+                _items = value;
+                OnPropertyChanged(nameof(Items));
+            } }
 
         private string _contract;
         private string _token;
         public string Token
-        { get { return _token; } set { if (_token == value) return; _token = value; OnPropertyChanged(nameof(Token)); } }
+        {
+            get
+            {
+                return _token;
+            }
+            set
+            {
+                if (_token == value) return;
+                _token = value; OnPropertyChanged(nameof(Token));
+            } }
         public string Contract
-        { get { return _contract; } set { if (_contract == value) return; _contract = value; OnPropertyChanged(nameof(Contract)); } }
+        {
+            get
+            {
+                return _contract;
+            }
+            set
+            {
+                if(_contract == value) return;
+                _contract = value; OnPropertyChanged(nameof(Contract));
+            }
+        }
         private NomWrapper _selectedItem;
         public NomWrapper SelectedItem
         {

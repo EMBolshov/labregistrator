@@ -16,11 +16,11 @@
             <RowDefinition Height="1*"></RowDefinition>
         </Grid.RowDefinitions>
         <Label Content="Выберите биоматериал: " Grid.Row="0" FontStretch="ExtraCondensed" FontWeight="Bold" HorizontalAlignment="Center"></Label>
-        <ListBox ItemsSource="{Binding _specimen}" Grid.Row="1" Margin="25">
+        <ListBox ItemsSource="{Binding Specimen}" Grid.Row="1" Margin="25">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
-                        <RadioButton Content="{Binding description}" GroupName="SpecimenGroup" />
+                        <RadioButton Content="{Binding description}" GroupName="SpecimenGroup"  />
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

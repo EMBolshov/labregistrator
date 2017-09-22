@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
+using LabRegistrator.Models;
 
 namespace LabRegistrator
 {
@@ -17,25 +20,110 @@ namespace LabRegistrator
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         private readonly NomWrapper _nmList;
-        public Specimen[] Specimen { get; set; }
-        private ObservableCollection<NomWrapper> _SelectedSpecimens;
+        private string _testJson;
 
-        public ObservableCollection<NomWrapper> SelectedSpecimens
+        public string testJson
+        {
+            get { return _testJson; }
+            set
+            {
+                _testJson = value;
+                OnPropertyChanged(nameof(testJson));
+            }
+        }
+        public Specimen[] Specimen { get; set; }
+        private ObservableCollection<NomWrapper> _SelectedSpecimen;
+
+        public ObservableCollection<NomWrapper> SelectedSpecimen
         {
             get
             {
-                return _SelectedSpecimens;
+                return _SelectedSpecimen;
             }
             set
             {
-                _SelectedSpecimens = value;
-                OnPropertyChanged(nameof(SelectedSpecimens));
+                _SelectedSpecimen = value;
+                OnPropertyChanged(nameof(SelectedSpecimen));
             }
         }
+
+        private ObservableCollection<analyticsrequests> _NomWrapperSpecimens;
+
+        public ObservableCollection<analyticsrequests> NomWrapperSpecimens
+        {
+            get
+            {
+                return _NomWrapperSpecimens;
+            }
+            set
+            {
+                _NomWrapperSpecimens = value;
+                OnPropertyChanged(nameof(NomWrapperSpecimens));
+            }
+        }
+
+
+
         public SpicemenSelectionViewModel(NomWrapper nmList)
         {
+            NomWrapperSpecimens = new ObservableCollection<analyticsrequests>();
             _nmList = nmList;
             Specimen = nmList.specimen;
+            ShowSpecimens();
+        
+         
+        }
+
+        public void ShowSpecimens()
+        {
+            NomWrapperSpecimens.Add(new analyticsrequests()
+            {
+                bodysite_code = "dsas",
+                container_type = "dsda",
+                id = "dsad",
+                specimen_code = "dsadas"
+            });
+            foreach (Specimen spec in _nmList.specimen)
+            {
+                try
+                {
+                    if (spec != null)
+                    {
+                        NomWrapperSpecimens.Add(new analyticsrequests()
+                        {
+                            bodysite_code = (string) spec.bodysite_code,
+                            container_type = (string) spec.container_type,
+                            id = _nmList.id,
+                            specimen_code = spec.specimen_code
+                        });
+                    }
+                }
+                catch (NullReferenceException e)
+                {
+                    
+                }
+                
+            }
+            convertToJson();
+        }
+
+        public void convertToJson()
+        {
+            var json = new JavaScriptSerializer().Serialize(NomWrapperSpecimens);
+            testJson = (string) json;
+
+        }
+
+        public class SpecWrapper : analyticsrequests
+        {
+
+            public SpecWrapper(NomWrapper source, BaseCommand selectAction, BaseCommand deleteAction)
+            {
+                foreach (Specimen spec in source.specimen)
+                {
+                    
+                }
+            }
         }
 
     }
