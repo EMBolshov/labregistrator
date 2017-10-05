@@ -118,7 +118,8 @@ namespace LabRegistrator
             {
                 if (_token == value) return;
                 _token = value; OnPropertyChanged(nameof(Token));
-            } }
+            }
+        }
         public string Contract
         {
             get
@@ -197,14 +198,14 @@ namespace LabRegistrator
         {
             var httpResp = new Response();
             var requestn = new RequestToMDO();
-            var response = httpResp.ResponseBasicHandler<QuestinaryBasicModel>(requestn.getQuestinary());
+            var response = httpResp.ResponseToModelConverter<QuestinaryBasicModel>(requestn.getQuestinary());
         }
 
         public void ShowNom()
         {
-            var httpResp = new Response();
+            var ResponseFromAPI = new Response();
             var requestN = new RequestToMDO();
-            var response = httpResp.ResponseBasicHandler<NomenclatureList[]>(requestN.getNomenclature());
+            var response = ResponseFromAPI.ResponseToModelConverter<NomenclatureList[]>(requestN.getNomenclature());
             Items = new ObservableCollection<NomWrapper>(response.Select(x =>
             {
                 var add = new OneTimeCommand(() => { AddSelected(); }, true);
@@ -270,23 +271,14 @@ namespace LabRegistrator
         }
     }
 
-    public class QuestiWrapper : NomenclatureList
-    {
-        private Specimen[] specimen;
-        public QuestiWrapper(NomenclatureList source)
-        {
-            id = source.id;
-            specimen = source.specimen;
-            
-        }
-    }
+
 
     public class NomWrapper : NomenclatureList
     {
         public ICommand Select { get; set; }
         public ICommand Delete { get; set; }
         public ICommand ShowInfo { get; set; }
-
+        //TODO price
         public NomWrapper(NomenclatureList source, BaseCommand selectAction, BaseCommand deleteAction, BaseCommand showInfo)
         {
             if (selectAction == null) throw new ArgumentNullException(nameof(selectAction));
@@ -324,6 +316,7 @@ namespace LabRegistrator
             _enabled = true;
             CanExecuteChanged?.Invoke(this, EventArgs.Empty);
         }
+
 
         public bool CanExecute(object parameter)
         {

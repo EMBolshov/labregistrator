@@ -11,6 +11,7 @@
         public string caption { get; set; }
         public string group { get; set; }
         public string description { get; set; }
+        public string price { get; set; }
         public string[] patient_preparation { get; set; }
         public Specimen[] specimen { get; set; }
         public Required_Specimen[] required_specimen { get; set; }

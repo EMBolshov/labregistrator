@@ -13,17 +13,30 @@ namespace LabRegistrator
 {
     class Response
     {
-        public T ResponseBasicHandler<T>(WebRequest HttpResponse)
+        public T ResponseToModelConverter<T>(WebRequest HttpResponse)
         {
-            var getResponse = (HttpWebResponse) HttpResponse.GetResponse();
-            Stream getResponseToStream = getResponse.GetResponseStream();
-            StreamReader ResponseStreamReader = new StreamReader(getResponseToStream);
+            var ResponseStreamReader = ResponseStreamGetter(HttpResponse);
             var serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
             var str = ResponseStreamReader.ReadToEnd().Replace(@"""..._code"":null""", @"""undefined""");
             var jsonResponse = serializer.Deserialize<T>(str);
             return jsonResponse;
-  
-        }   
+        }
+
+        private StreamReader ResponseStreamGetter(WebRequest HttpResponse)
+        {
+            try
+            {
+                var getResponse = (HttpWebResponse) HttpResponse.GetResponse();
+                Stream getResponseToStream = getResponse.GetResponseStream();
+                StreamReader ResponseStreamReader = new StreamReader(getResponseToStream);
+                return ResponseStreamReader;
+            }
+            catch (NullReferenceException e)
+            {
+                //TODO: Nlog report + allert
+                return null;
+            }
+        }
     }
 }
 

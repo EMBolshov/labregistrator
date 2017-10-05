@@ -14,17 +14,18 @@ namespace LabRegistrator
     public class SpicemenSelectionViewModel
     {
         private PropertyChangedEventHandler PropertyChanged;
-
         public void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
         private readonly NomWrapper _nmList;
         private string _testJson;
-
         public string testJson
         {
-            get { return _testJson; }
+            get
+            {
+                return _testJson;
+            }
             set
             {
                 _testJson = value;
@@ -32,9 +33,8 @@ namespace LabRegistrator
             }
         }
         public Specimen[] Specimen { get; set; }
-        private ObservableCollection<NomWrapper> _SelectedSpecimen;
-
-        public ObservableCollection<NomWrapper> SelectedSpecimen
+        private ObservableCollection<SpecWrapper> _SelectedSpecimen;
+        public ObservableCollection<SpecWrapper> SelectedSpecimen
         {
             get
             {
@@ -47,9 +47,9 @@ namespace LabRegistrator
             }
         }
 
-        private ObservableCollection<analyticsrequests> _NomWrapperSpecimens;
+        private ObservableCollection<SpecWrapper> _NomWrapperSpecimens;
 
-        public ObservableCollection<analyticsrequests> NomWrapperSpecimens
+        public ObservableCollection<SpecWrapper> NomWrapperSpecimens
         {
             get
             {
@@ -62,39 +62,32 @@ namespace LabRegistrator
             }
         }
 
-
-
         public SpicemenSelectionViewModel(NomWrapper nmList)
         {
-            NomWrapperSpecimens = new ObservableCollection<analyticsrequests>();
             _nmList = nmList;
             Specimen = nmList.specimen;
-            ShowSpecimens();
-        
-         
+            NomWrapperSpecimens = new ObservableCollection<SpecWrapper>();
+            WrapAllSpecimensForCurrentResearch(Specimen);
+
+
         }
 
-        public void ShowSpecimens()
+        public void WrapAllSpecimensForCurrentResearch(Specimen[] AvalibleSpecimens)
         {
-            NomWrapperSpecimens.Add(new analyticsrequests()
-            {
-                bodysite_code = "dsas",
-                container_type = "dsda",
-                id = "dsad",
-                specimen_code = "dsadas"
-            });
-            foreach (Specimen spec in _nmList.specimen)
+            foreach (Specimen singleAvalibleSpecimen in AvalibleSpecimens)
             {
                 try
                 {
-                    if (spec != null)
+                    if (singleAvalibleSpecimen != null)
                     {
-                        NomWrapperSpecimens.Add(new analyticsrequests()
+                        NomWrapperSpecimens.Add(new SpecWrapper()
                         {
-                            bodysite_code = (string) spec.bodysite_code,
-                            container_type = (string) spec.container_type,
+                            isChecked = false,
+                            bodysite_code = (string) singleAvalibleSpecimen.bodysite_code,
+                            container_type = (string) singleAvalibleSpecimen.container_type,
                             id = _nmList.id,
-                            specimen_code = spec.specimen_code
+                            specimen_code = singleAvalibleSpecimen.specimen_code,
+                            description = singleAvalibleSpecimen.description
                         });
                     }
                 }
@@ -109,22 +102,16 @@ namespace LabRegistrator
 
         public void convertToJson()
         {
-            var json = new JavaScriptSerializer().Serialize(NomWrapperSpecimens);
-            testJson = (string) json;
-
+           var json = new JavaScriptSerializer().Serialize(NomWrapperSpecimens);
+           testJson = (string) json;
         }
 
         public class SpecWrapper : analyticsrequests
         {
+            private bool _isChecked;
+            public bool isChecked { get { return _isChecked; } set { _isChecked = value;  } }
+            public string description { get; set; }
 
-            public SpecWrapper(NomWrapper source, BaseCommand selectAction, BaseCommand deleteAction)
-            {
-                foreach (Specimen spec in source.specimen)
-                {
-                    
-                }
-            }
         }
-
     }
 }
