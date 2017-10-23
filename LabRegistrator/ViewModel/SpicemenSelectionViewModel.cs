@@ -7,6 +7,8 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
+using System.Windows;
+using System.Windows.Input;
 using LabRegistrator.Models;
 
 namespace LabRegistrator
@@ -14,10 +16,9 @@ namespace LabRegistrator
     public class SpicemenSelectionViewModel
     {
         private PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        public event EventHandler ClosingRequest;
+
+        public analyticsrequests[] SpecimensForQuestinary;
         private readonly NomWrapper _nmList;
         private string _testJson;
         public string testJson
@@ -45,6 +46,11 @@ namespace LabRegistrator
                 _SelectedSpecimen = value;
                 OnPropertyChanged(nameof(SelectedSpecimen));
             }
+        }
+
+        protected void OnClosingRequest()
+        {
+            this.ClosingRequest?.Invoke(this, EventArgs.Empty);
         }
 
         private ObservableCollection<SpecWrapper> _NomWrapperSpecimens;
@@ -100,6 +106,17 @@ namespace LabRegistrator
             convertToJson();
         }
 
+        //public void CreateSpecArray()
+        //{
+        //    foreach (SpecWrapper WSpec in NomWrapperSpecimens)
+        //    {
+        //        if (WSpec.isChecked == true)
+        //        {
+        //            SpecimensForQuestinary.
+        //        }
+        //    }
+        //}
+
         public void convertToJson()
         {
            var json = new JavaScriptSerializer().Serialize(NomWrapperSpecimens);
@@ -113,5 +130,14 @@ namespace LabRegistrator
             public string description { get; set; }
 
         }
+
+  
+
+        public void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+
     }
 }

@@ -177,7 +177,7 @@
                         <DataGridTemplateColumn Header="HxID" >
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Label Content="{Binding id}" ></Label>
+                                    <Label Content="{Binding lab_id}" ></Label>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
@@ -218,7 +218,7 @@
                         <DataGridTemplateColumn Header="HxID" >
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Label Content="{Binding id}" ></Label>
+                                    <Label Content="{Binding lab_id}" ></Label>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>

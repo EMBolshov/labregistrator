@@ -40,9 +40,9 @@ namespace LabRegistrator
             }
         }
 
-        private ObservableCollection<QuestinaryRequestModel> testReq;
+        private ObservableCollection<analyticsrequests> testReq;
 
-        public ObservableCollection<QuestinaryRequestModel> SendQuestiReq
+        public ObservableCollection<analyticsrequests> SendQuestiReq
         {
             get
             {
@@ -249,11 +249,29 @@ namespace LabRegistrator
             if (SelectedItem != null)
             {
                 var vm = new SpicemenSelectionViewModel(SelectedItem);
-                var showAdd = new SpicemenSelection(vm);
+                var specimenSelectionWindow = new SpicemenSelection(vm);
                 if (vm.Specimen.Length != 0) {
-                    showAdd.ShowDialog();
+                    specimenSelectionWindow.ShowDialog();
+                    AddSpecimenToRequestList(vm);
                 }
                 ChosenItems.Add(SelectedItem);
+            }
+        }
+
+        private void AddSpecimenToRequestList(SpicemenSelectionViewModel vm)
+        {
+            foreach (SpicemenSelectionViewModel.SpecWrapper WSpec in vm.SpecimensForQuestinary)
+            {
+                if (WSpec.isChecked == true)
+                {
+                    SendQuestiReq.Add(new analyticsrequests()
+                    {
+                        bodysite_code = WSpec.bodysite_code,
+                        container_type = WSpec.container_type,
+                        id = WSpec.id,
+                        specimen_code = WSpec.specimen_code
+                    });
+                }
             }
         }
 
@@ -285,11 +303,13 @@ namespace LabRegistrator
             if (deleteAction == null) throw new ArgumentNullException(nameof(deleteAction));
             if (showInfo == null) throw new ArgumentNullException(nameof(showInfo));
             id = source.id;
+            lab_id = source.lab_id;
             caption = source.caption;
             group = source.group;
             description = source.description;
             patient_preparation = source.patient_preparation;
             specimen = source.specimen;
+            price = source.price;
             Select = selectAction;
             Delete = deleteAction;
             ShowInfo = showInfo;
@@ -300,7 +320,7 @@ namespace LabRegistrator
         public event EventHandler CanExecuteChanged;
         private Action _action;
         private bool _enabled = true;
-        public BaseCommand(Action action, bool enabled)
+        public BaseCommand(Action action, bool enabled = true)
         {
             _enabled = enabled;
             _action = action;

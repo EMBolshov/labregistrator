@@ -26,7 +26,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button Grid.Row="2" Command="{Binding SelectSpecimenCommand}">Продолжить</Button>
+        <Button Grid.Row="2" Command="{Binding OnClosingRequest}">Продолжить</Button>
     </Grid>
 </Window>
 

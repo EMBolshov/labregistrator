@@ -25,6 +25,8 @@ namespace LabRegistrator
         {
             InitializeComponent();
             DataContext = datacontext;
+            datacontext.ClosingRequest += (sender, e) => this.Close();
+
         }
 
     }

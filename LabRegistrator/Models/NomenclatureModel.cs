@@ -8,6 +8,7 @@
     public class NomenclatureList
     {
         public string id { get; set; }
+        public string lab_id { get; set; }
         public string caption { get; set; }
         public string group { get; set; }
         public string description { get; set; }
