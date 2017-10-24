@@ -16,7 +16,7 @@ namespace LabRegistrator
     public class SpicemenSelectionViewModel
     {
         private PropertyChangedEventHandler PropertyChanged;
-        public event EventHandler ClosingRequest;
+        public ICommand  ClosingRequest { get; set; }
 
         public analyticsrequests[] SpecimensForQuestinary;
         private readonly NomWrapper _nmList;
@@ -47,11 +47,7 @@ namespace LabRegistrator
                 OnPropertyChanged(nameof(SelectedSpecimen));
             }
         }
-
-        protected void OnClosingRequest()
-        {
-            this.ClosingRequest?.Invoke(this, EventArgs.Empty);
-        }
+       
 
         private ObservableCollection<SpecWrapper> _NomWrapperSpecimens;
 

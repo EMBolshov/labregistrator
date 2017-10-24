@@ -260,7 +260,7 @@ namespace LabRegistrator
 
         private void AddSpecimenToRequestList(SpicemenSelectionViewModel vm)
         {
-            foreach (SpicemenSelectionViewModel.SpecWrapper WSpec in vm.SpecimensForQuestinary)
+            foreach (SpicemenSelectionViewModel.SpecWrapper WSpec in vm.NomWrapperSpecimens)
             {
                 if (WSpec.isChecked == true)
                 {
