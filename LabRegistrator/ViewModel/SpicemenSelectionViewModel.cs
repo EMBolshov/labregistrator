@@ -4,12 +4,15 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 using System.Windows;
 using System.Windows.Input;
 using LabRegistrator.Models;
+using System.Runtime.Serialization;
+using Microsoft.Win32.SafeHandles;
 
 namespace LabRegistrator
 {
@@ -84,7 +87,7 @@ namespace LabRegistrator
                     {
                         NomWrapperSpecimens.Add(new SpecWrapper()
                         {
-                            isChecked = false,
+                            addToRequest = false,
                             bodysite_code = (string) singleAvalibleSpecimen.bodysite_code,
                             container_type = (string) singleAvalibleSpecimen.container_type,
                             id = _nmList.id,
@@ -102,38 +105,41 @@ namespace LabRegistrator
             convertToJson();
         }
 
-        //public void CreateSpecArray()
-        //{
-        //    foreach (SpecWrapper WSpec in NomWrapperSpecimens)
-        //    {
-        //        if (WSpec.isChecked == true)
-        //        {
-        //            SpecimensForQuestinary.
-        //        }
-        //    }
-        //}
-
         public void convertToJson()
         {
            var json = new JavaScriptSerializer().Serialize(NomWrapperSpecimens);
            testJson = (string) json;
         }
 
-        public class SpecWrapper : analyticsrequests
-        {
-            private bool _isChecked;
-            public bool isChecked { get { return _isChecked; } set { _isChecked = value;  } }
-            public string description { get; set; }
 
-        }
 
-  
+
+
+
 
         public void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        public class SpecWrapper : analyticsrequests
+        {
+            private bool _addToRequest;
 
+            [IgnoreDataMember]
+            public bool addToRequest
+            {
+                get { return _addToRequest; }
+                set
+                {
+                    _addToRequest = value;
+                }
+            }
+            [IgnoreDataMember]
+            public string description { get; set; }
+
+        }
     }
-}
+    }
+
+

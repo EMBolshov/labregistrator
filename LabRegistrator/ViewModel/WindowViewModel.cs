@@ -18,7 +18,7 @@ using System.Net.Http;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 using LabRegistrator.Models;
-//using LabRegistrator.View;
+using LabRegistrator.View;
 
 namespace LabRegistrator
 {
@@ -40,9 +40,9 @@ namespace LabRegistrator
             }
         }
 
-        private ObservableCollection<analyticsrequests> testReq;
+        private List<analyticsrequests> testReq;
 
-        public ObservableCollection<analyticsrequests> SendQuestiReq
+        public List<analyticsrequests> SendQuestiReq
         {
             get
             {
@@ -177,6 +177,7 @@ namespace LabRegistrator
             Name = "Text";
             Status = "Выберите действие";
             ChosenItems = new ObservableCollection<NomWrapper>();
+            SendQuestiReq = new List<analyticsrequests>();
         }
 
         public void Auth()
@@ -246,41 +247,95 @@ namespace LabRegistrator
 
         private void AddSelected()
         {
+            List<SpicemenSelectionViewModel.SpecWrapper> SpecimenForRequest = new List<SpicemenSelectionViewModel.SpecWrapper>();
             if (SelectedItem != null)
             {
-                var vm = new SpicemenSelectionViewModel(SelectedItem);
-                var specimenSelectionWindow = new SpicemenSelection(vm);
-                if (vm.Specimen.Length != 0) {
-                    specimenSelectionWindow.ShowDialog();
-                    AddSpecimenToRequestList(vm);
+
+                {
+                    var vm = new SpicemenSelectionViewModel(SelectedItem);
+                    dynamic specimenSelectionWindow;
+                    if (SelectedItem.multiple_specimen == "True")
+                    {
+                        specimenSelectionWindow = new SpecimenSelectionWithCheckbox(vm);
+
+                    }
+                    else
+                    {
+                        specimenSelectionWindow = new SpicemenSelection(vm);
+                    }
+                    if (vm.Specimen.Length != 0)
+                    {
+                        specimenSelectionWindow.ShowDialog();
+                        SpecimenForRequest = AddSpecimenToRequestList(vm);
+                        SendQuestiReq.AddRange(SpecimenForRequest);
+                        SelectedItem.currentSpecimens.AddRange(SpecimenForRequest);
+                    }
+
+                    if (SelectedItem.required_specimen != null)
+                    {
+                        SpecimenForRequest.AddRange(
+                            addRequiredSpecimensToRequestList(SelectedItem.id, SelectedItem.required_specimen));
+                    }
+                    ChosenItems.Add(SelectedItem);
+
                 }
-                ChosenItems.Add(SelectedItem);
             }
         }
 
-        private void AddSpecimenToRequestList(SpicemenSelectionViewModel vm)
+        private List<SpicemenSelectionViewModel.SpecWrapper> AddSpecimenToRequestList(SpicemenSelectionViewModel vm)
         {
+            var ListWithSpecimens = new List<SpicemenSelectionViewModel.SpecWrapper>();
             foreach (SpicemenSelectionViewModel.SpecWrapper WSpec in vm.NomWrapperSpecimens)
             {
-                if (WSpec.isChecked == true)
+                if (WSpec.addToRequest)
                 {
-                    SendQuestiReq.Add(new analyticsrequests()
+                    ListWithSpecimens.Add(WSpec);
+                }
+            }
+
+            return ListWithSpecimens;
+
+
+        }
+
+        private List<SpicemenSelectionViewModel.SpecWrapper> addRequiredSpecimensToRequestList(string resID, Required_Specimen[] specs)
+        {
+            var ListWithRequariedSpecimens = new List<SpicemenSelectionViewModel.SpecWrapper>();
+
+            foreach (Required_Specimen ReqSpec in specs)
+            {
+                if (ReqSpec != null)
+                {
+                    ListWithRequariedSpecimens.Add(new SpicemenSelectionViewModel.SpecWrapper()
                     {
-                        bodysite_code = WSpec.bodysite_code,
-                        container_type = WSpec.container_type,
-                        id = WSpec.id,
-                        specimen_code = WSpec.specimen_code
+                        bodysite_code = (string)ReqSpec.bodysite_code,
+                        container_type = (string)ReqSpec.container_type,
+                        description = ReqSpec.description,
+                        id = resID,
+                        specimen_code = (string)ReqSpec.specimen_code
                     });
                 }
             }
+            return ListWithRequariedSpecimens;
         }
 
         private void DeleteSelected()
         {
             if (CartSelectedItem != null)
+            {
+                DeleteSpecimen(CartSelectedItem);
                 ChosenItems.Remove(CartSelectedItem);
+                
+            }
         }
 
+        private void DeleteSpecimen(NomWrapper CartSelectedItem)
+        {
+            foreach (analyticsrequests SpecimensForRequest in CartSelectedItem.currentSpecimens)
+            {
+                SendQuestiReq.Remove(SpecimensForRequest);
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged(string propertyName)
@@ -290,12 +345,15 @@ namespace LabRegistrator
     }
 
 
+    
 
     public class NomWrapper : NomenclatureList
     {
         public ICommand Select { get; set; }
         public ICommand Delete { get; set; }
         public ICommand ShowInfo { get; set; }
+
+        public List<analyticsrequests> currentSpecimens { get; set; }
         //TODO price
         public NomWrapper(NomenclatureList source, BaseCommand selectAction, BaseCommand deleteAction, BaseCommand showInfo)
         {
@@ -307,8 +365,11 @@ namespace LabRegistrator
             caption = source.caption;
             group = source.group;
             description = source.description;
+            multiple_specimen = source.multiple_specimen;
             patient_preparation = source.patient_preparation;
             specimen = source.specimen;
+            required_specimen = source.required_specimen;
+            currentSpecimens = new List<analyticsrequests>();
             price = source.price;
             Select = selectAction;
             Delete = deleteAction;

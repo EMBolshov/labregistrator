@@ -1,33 +1,34 @@
-﻿<Window x:Class="LabRegistrator.NomenclatureInfo"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LabRegistrator"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" x:Class="LabRegistrator.NomenclatureInfo"
         mc:Ignorable="d"
         Title="{Binding NomenclatureID}" Height="600" Width="800"  WindowStartupLocation="CenterScreen">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50*"></RowDefinition>
-            <RowDefinition Height="50*"></RowDefinition>
-            <RowDefinition Height="50*"></RowDefinition>
-            <RowDefinition Height="10*"></RowDefinition>
-        </Grid.RowDefinitions>
-        <Label Content="Описание исследования: " Grid.Row="0" FontStretch="ExtraCondensed" FontWeight="Bold"></Label>
-        <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="0">
-            <StackPanel Orientation="Vertical" Width="auto" Height="auto" Margin="25">
-                <TextBlock TextWrapping="WrapWithOverflow" Text="{Binding Description}" Grid.Row="0"></TextBlock>
-            </StackPanel>
-        </ScrollViewer>
-        <Label Content="Подготовка к исследованию: " Grid.Row="1" FontStretch="ExtraCondensed" FontWeight="Bold"></Label>
-        <ListBox ItemsSource="{Binding PatientPrep}" Grid.Row="1" Margin="25">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Vertical">
-                        <TextBlock Text="{Binding}" />
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-    </Grid>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="50*"/>
+			<RowDefinition Height="50*"/>
+			<RowDefinition Height="50*"/>
+			<RowDefinition Height="10*"/>
+		</Grid.RowDefinitions>
+		<Label Content="Описание исследования: " Grid.Row="0" FontStretch="ExtraCondensed" FontWeight="Bold"/>
+		<ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="0">
+			<StackPanel Orientation="Vertical" Width="auto" Height="auto" Margin="25">
+				<TextBlock TextWrapping="WrapWithOverflow" Text="{Binding Description}" Grid.Row="0"/>
+			</StackPanel>
+		</ScrollViewer>
+		<Label Content="Подготовка к исследованию: " Grid.Row="1" FontStretch="ExtraCondensed" FontWeight="Bold"/>
+		<ListBox ItemsSource="{Binding PatientPrep}" Grid.Row="1" Margin="25">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<StackPanel Orientation="Vertical">
+						<TextBlock Text="{Binding}" />
+					</StackPanel>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+	</Grid>
 </Window>

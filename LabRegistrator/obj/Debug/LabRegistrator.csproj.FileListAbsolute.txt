@@ -64,3 +64,16 @@ C:\Temp\LabRegistrator2\LabRegistrator\obj\Debug\View\SpicemenSelection.g.cs
 C:\Temp\LabRegistrator2\LabRegistrator\obj\Debug\View\SpicemenSelection.baml
 C:\Users\yakovlev.s\Documents\labregistrator\LabRegistrator\obj\Debug\View\SpicemenSelection.g.cs
 C:\Users\yakovlev.s\Documents\labregistrator\LabRegistrator\obj\Debug\View\SpicemenSelection.baml
+C:\Users\yakovlev.s\Documents\labregistrator\LabRegistrator\bin\Debug\Telerik.Windows.Controls.dll
+C:\Users\yakovlev.s\Documents\labregistrator\LabRegistrator\bin\Debug\Telerik.Windows.Controls.Input.dll
+C:\Users\yakovlev.s\Documents\labregistrator\LabRegistrator\bin\Debug\Telerik.Windows.Controls.xml
+C:\Users\yakovlev.s\Documents\labregistrator\LabRegistrator\bin\Debug\Telerik.Windows.Controls.Input.xml
+C:\Users\yakovlev.s\Documents\labregistrator\LabRegistrator\bin\Debug\de\Telerik.Windows.Controls.resources.dll
+C:\Users\yakovlev.s\Documents\labregistrator\LabRegistrator\bin\Debug\es\Telerik.Windows.Controls.resources.dll
+C:\Users\yakovlev.s\Documents\labregistrator\LabRegistrator\bin\Debug\fr\Telerik.Windows.Controls.resources.dll
+C:\Users\yakovlev.s\Documents\labregistrator\LabRegistrator\bin\Debug\it\Telerik.Windows.Controls.resources.dll
+C:\Users\yakovlev.s\Documents\labregistrator\LabRegistrator\bin\Debug\nl\Telerik.Windows.Controls.resources.dll
+C:\Users\yakovlev.s\Documents\labregistrator\LabRegistrator\bin\Debug\tr\Telerik.Windows.Controls.resources.dll
+C:\Users\yakovlev.s\Documents\labregistrator\LabRegistrator\obj\Debug\LabRegistrator.exe.licenses
+C:\Users\yakovlev.s\Documents\labregistrator\LabRegistrator\obj\Debug\View\SpecimenSelectionWithCheckbox.g.cs
+C:\Users\yakovlev.s\Documents\labregistrator\LabRegistrator\obj\Debug\View\SpecimenSelectionWithCheckbox.baml

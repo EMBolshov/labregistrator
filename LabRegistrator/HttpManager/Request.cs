@@ -16,7 +16,7 @@ namespace LabRegistrator
 
         public  QuestinaryRequestModel testRequest = new QuestinaryRequestModel
         {
-            contract = "C000035569",
+            contract = "C000003409",
             analyticsrequests = new []
             {
                 new analyticsrequests {id = "001.028",specimen_code = "122555007",bodysite_code = "null",container_type = "null" },
@@ -24,9 +24,10 @@ namespace LabRegistrator
            
         };
 
-        protected static string Headtoken = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjU2NjU0MzNCMjg2ODM1QjFERDg2OTRDRTUzRkYzQUE1RTYyNDFBNUQiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJWbVZET3lob05iSGRocFRPVV84NnBlWWtHbDAifQ.eyJuYmYiOjE1MDg4MjU5MDAsImV4cCI6MTUwODg2MTkwMCwiaXNzIjoiaHR0cHM6Ly9hdXRoLXN0YWdlLm1lZGxpbngub25saW5lIiwiYXVkIjpbImh0dHBzOi8vYXV0aC1zdGFnZS5tZWRsaW54Lm9ubGluZS9yZXNvdXJjZXMiLCJmaGlyQVBJIl0sImNsaWVudF9pZCI6InRlc3RwZXB5YWthIiwic3ViIjoiMjRmMTFmYjAtNDBhZC00MWUxLWIwYjQtZDM1MDI3NGE2MTgwIiwiYXV0aF90aW1lIjoxNTA4NzQ2MzQ0LCJpZHAiOiJsb2NhbCIsImZoaXItZHN0dTIiOlsiZmhpci8qLyQqIiwiZmhpci8kKiJdLCJzY29wZSI6WyJtaXMiXSwiYW1yIjpbInB3ZCJdfQ.QDWKksJK25GapR2utkV0saDDUXdIlLD0MYkE41gqZDXuxUxVhlIJc4dtS9K6Da4L5Fe5PKm8PghiXEqBsGq_UNfx_Ylu86zrbQWjgA1pRKDD6TNqjxCP8ukEbRAMVE9WTwHBlv28v35IkeAXN1ts9fGEFiGaa8spCRoBQ0jGNCi6dLyXmEyUB5ZSvg-AZ1zPjqYKrjtVvDcOaK-Nzim3MWltsvRPrRujShr2nP9MOHieYDgBk3K5TnNfimAkWPnPC9TZuLIyHTsPOTOenS34Xras5MMItMiTzfcBwxOduSWv2aJ7e_JFtMIOELrjhsFzW4p_ViuMa3FB-5D6E3_FxA\r\n";
+        protected static string Headtoken = "eyJhbGciOiJSUzI1NiIsImtpZCI6IjU2NjU0MzNCMjg2ODM1QjFERDg2OTRDRTUzRkYzQUE1RTYyNDFBNUQiLCJ0eXAiOiJKV1QiLCJ4NXQiOiJWbVZET3lob05iSGRocFRPVV84NnBlWWtHbDAifQ.eyJuYmYiOjE1MDk0NjEyNTEsImV4cCI6MTUwOTQ5NzI1MSwiaXNzIjoiaHR0cHM6Ly9hdXRoLXN0YWdlLm1lZGxpbngub25saW5lIiwiYXVkIjpbImh0dHBzOi8vYXV0aC1zdGFnZS5tZWRsaW54Lm9ubGluZS9yZXNvdXJjZXMiLCJmaGlyQVBJIl0sImNsaWVudF9pZCI6InRlc3RwZXB5YWthIiwic3ViIjoiZDE3OTBmODEtODQyMi00OWI1LWJkZWYtZjFhMjgwYTZlMWM1IiwiYXV0aF90aW1lIjoxNTA5NDU4NjAxLCJpZHAiOiJsb2NhbCIsImZoaXItZHN0dTIiOiJmaGlyLyovJCoiLCJzY29wZSI6WyJtaXMiXSwiYW1yIjpbInB3ZCJdfQ.Dea5D6Sapyq734G4hP3EE_i3CTMdIkWiY7NyotcDTguOf64JSEJhwz6lbWn4T1qF2T1UJghSzRdlIfJ4slpX9uY5wAKlK_cMuUnuUE0slRHtJSnK3jcB7OrOI2eBmjnxAlwSFI4TN6D-SK_DYLcVUPN8usAOPR8Q5GKMcXRzRtg8im7xA3iINKR3Lm-wvPML0cLPYhqibmk1ES1SqOGT9Y6jIgqQVvCr311RJngRNo_Xfx-sb5VUVBcet078a_A5TFw2_77p_669yFcqZFrJ-3WKrn24j6jS5cTVkJU3IMNQVcYo3fJoSRd0w5CAtWHNOzqk8ESQufVvV0_wMY5Upw\r\n";
         protected static string Url = "https://api-stage.medlinx.online/";
-        private string _contract = "C000035569";
+        private string _contract = "C000003409";
+
         //TODO: Опросник идёт с бандлом
         public WebRequest getNomenclature()
         {
@@ -36,7 +37,7 @@ namespace LabRegistrator
                 if (webRequest != null)
                 {
                     webRequest.Method = "GET";
-                    webRequest.Timeout = 20000;
+                    webRequest.Timeout= 100000;
                     webRequest.ContentType = "application/json";
                     webRequest.Headers.Add("Authorization", "Bearer " + Headtoken);
                     return webRequest;
