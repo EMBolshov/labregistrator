@@ -84,6 +84,8 @@
     <Compile Include="HttpManager\QuestinaryRequest.cs" />
     <Compile Include="Models\QuestinaryRequestModel.cs" />
     <Compile Include="Models\QuestinaryResponseModel.cs" />
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="ViewModel\BaseCommand.cs" />
     <Compile Include="ViewModel\NmWindowViewModel.cs" />
     <Compile Include="ViewModel\SpicemenSelectionViewModel.cs" />
     <Compile Include="ViewModel\WindowViewModel.cs" />

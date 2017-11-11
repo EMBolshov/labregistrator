@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using LabRegistrator.ViewModel;
 
 namespace LabRegistrator.View
 {
@@ -23,7 +24,9 @@ namespace LabRegistrator.View
         {
             InitializeComponent();
             DataContext = datacontext;
-            datacontext.ClosingRequest = new BaseCommand(() => this.Close());
+            var c = new BaseCommand(() => this.Close()) { };
+            c.SetEnabled(false);
+            datacontext.ClosingRequest = c;
         }
     }
 }

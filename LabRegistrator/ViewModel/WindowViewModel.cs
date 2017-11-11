@@ -19,6 +19,7 @@ using System.ComponentModel;
 using System.Collections.ObjectModel;
 using LabRegistrator.Models;
 using LabRegistrator.View;
+using LabRegistrator.ViewModel;
 
 namespace LabRegistrator
 {
@@ -247,7 +248,7 @@ namespace LabRegistrator
 
         private void AddSelected()
         {
-            List<SpicemenSelectionViewModel.SpecWrapper> SpecimenForRequest = new List<SpicemenSelectionViewModel.SpecWrapper>();
+            List<SpicemenSelectionViewModel.SpecWrapper> TempSpecimenForRequest = new List<SpicemenSelectionViewModel.SpecWrapper>();
             if (SelectedItem != null)
             {
 
@@ -263,21 +264,19 @@ namespace LabRegistrator
                     {
                         specimenSelectionWindow = new SpicemenSelection(vm);
                     }
+                    if (SelectedItem.required_specimen != null)
+                    {
+                        TempSpecimenForRequest.AddRange(
+                            addRequiredSpecimensToRequestList(SelectedItem.id, SelectedItem.required_specimen));
+                    }
                     if (vm.Specimen.Length != 0)
                     {
                         specimenSelectionWindow.ShowDialog();
-                        SpecimenForRequest = AddSpecimenToRequestList(vm);
-                        SendQuestiReq.AddRange(SpecimenForRequest);
-                        SelectedItem.currentSpecimens.AddRange(SpecimenForRequest);
+                        TempSpecimenForRequest.AddRange(AddSpecimenToRequestList(vm));
                     }
-
-                    if (SelectedItem.required_specimen != null)
-                    {
-                        SpecimenForRequest.AddRange(
-                            addRequiredSpecimensToRequestList(SelectedItem.id, SelectedItem.required_specimen));
-                    }
+                    SendQuestiReq.AddRange(TempSpecimenForRequest);
+                    SelectedItem.currentSpecimens.AddRange(TempSpecimenForRequest);
                     ChosenItems.Add(SelectedItem);
-
                 }
             }
         }
@@ -374,39 +373,6 @@ namespace LabRegistrator
             Select = selectAction;
             Delete = deleteAction;
             ShowInfo = showInfo;
-        }
-    }
-    public class BaseCommand : ICommand
-    {
-        public event EventHandler CanExecuteChanged;
-        private Action _action;
-        private bool _enabled = true;
-        public BaseCommand(Action action, bool enabled = true)
-        {
-            _enabled = enabled;
-            _action = action;
-        }
-
-        public void Invert()
-        {
-            _enabled = false;
-            CanExecuteChanged?.Invoke(this, EventArgs.Empty);
-        }
-        public void Enable()
-        {
-            _enabled = true;
-            CanExecuteChanged?.Invoke(this, EventArgs.Empty);
-        }
-
-
-        public bool CanExecute(object parameter)
-        {
-            return _enabled;
-        }
-
-        public virtual void Execute(object parameter)
-        {
-            _action.Invoke();
         }
     }
 
