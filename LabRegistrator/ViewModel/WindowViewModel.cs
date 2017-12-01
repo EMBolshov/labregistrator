@@ -148,7 +148,6 @@ namespace LabRegistrator
                 OnPropertyChanged(nameof(SelectedItem));
             }
         }
-
         private NomWrapper _cartSelectedItem;
         public NomWrapper CartSelectedItem
         {
@@ -164,8 +163,6 @@ namespace LabRegistrator
                 OnPropertyChanged(nameof(CartSelectedItem));
             }
         }
-
-
         public ObservableCollection<NomWrapper> ChosenItems { get; set; }
         public WindowViewModel()
         {
@@ -180,7 +177,6 @@ namespace LabRegistrator
             ChosenItems = new ObservableCollection<NomWrapper>();
             SendQuestiReq = new List<analyticsrequests>();
         }
-
         public void Auth()
         {
             try
@@ -195,51 +191,40 @@ namespace LabRegistrator
             }
            
         }
-
-        public void getTestQuest()
-        {
-            var httpResp = new Response();
-            var requestn = new RequestToMDO();
-            var response = httpResp.ResponseToModelConverter<QuestinaryBasicModel>(requestn.getQuestinary());
-        }
-
         public void ShowNom()
         {
-            var ResponseFromAPI = new Response();
+            var responseFromApi = new Response();
             var requestN = new RequestToMDO();
-            var response = ResponseFromAPI.ResponseToModelConverter<NomenclatureList[]>(requestN.getNomenclature());
+            var response = responseFromApi.ResponseToModelConverter<NomenclatureList[]>(requestN.getNomenclature());
             Items = new ObservableCollection<NomWrapper>(response.Select(x =>
             {
                 var add = new OneTimeCommand(() => { AddSelected(); }, true);
                 var rem = new EnableInnerCommand(() => { DeleteSelected(); }, true, add);
-                var inf = new BaseCommand(() => { showAdditional(); }, true);
+                var inf = new BaseCommand(() => { ShowAdditional(); }, true);
 
                 var n = new NomWrapper(x, add, rem, inf);
                 return n;
             }));
-
         }
-
-        //private void WrapNomenList(NomenclatureList[] nomen)
-        //{
-            
-        //}
-
+        public void getTestQuest()
+        {
+            var httpResp = new Response();
+            var requestn = new RequestToMDO();
+            var response = httpResp.ResponseToModelConverter<QuestinaryBasicModel>(requestn.getQuestinary(SendQuestiReq));
+        }
         private void Cancel()
         {
             TabNumber--;
         }
-
         private void NextStep()
         {
             TabNumber++;
         }
-
         private void SendOrder()
         {
             MessageBox.Show("Заказ отправлен!");
         }
-        private void showAdditional()
+        private void ShowAdditional()
         {
             var vm = new NmWindowViewModel(SelectedItem);
             var showAdd = new NomenclatureInfo(vm);
@@ -258,17 +243,16 @@ namespace LabRegistrator
                     if (SelectedItem.multiple_specimen == "True")
                     {
                         specimenSelectionWindow = new SpecimenSelectionWithCheckbox(vm);
-
                     }
                     else
                     {
                         specimenSelectionWindow = new SpicemenSelection(vm);
                     }
-                    if (SelectedItem.required_specimen != null)
-                    {
-                        TempSpecimenForRequest.AddRange(
-                            addRequiredSpecimensToRequestList(SelectedItem.id, SelectedItem.required_specimen));
-                    }
+                    //if (SelectedItem.required_specimen != null)
+                    //{
+                    //    TempSpecimenForRequest.AddRange(
+                    //        addRequiredSpecimensToRequestList(SelectedItem.id, SelectedItem.required_specimen));
+                    //}
                     if (vm.Specimen.Length != 0)
                     {
                         specimenSelectionWindow.ShowDialog();
@@ -404,4 +388,6 @@ namespace LabRegistrator
         }
     }
 }
+
+
 
